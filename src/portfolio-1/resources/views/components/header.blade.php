@@ -21,6 +21,7 @@
     @vite(['resources/css/destyle.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 
     <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 
     @livewireStyles

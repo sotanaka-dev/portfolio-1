@@ -1,5 +1,13 @@
 @if (session('status'))
-    <div class="alert alert--success" role="alert" id="alert">
-        <i class="fa-solid fa-check fa-lg"></i>&nbsp;{{ session('status') }}
+    <div x-data="{
+        show: false,
+        init() {
+            $nextTick(() => {
+                this.show = true
+                setTimeout(() => this.show = false, 5000)
+            })
+        }
+    }" x-show="show" x-transition.duration.500ms class="flash-message flash-message--success">
+        <i class="fa-solid fa-circle-check fa-lg"></i>&nbsp;{{ session('status') }}
     </div>
 @endif
