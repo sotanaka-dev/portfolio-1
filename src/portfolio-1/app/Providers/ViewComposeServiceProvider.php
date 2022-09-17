@@ -24,6 +24,8 @@ class ViewComposeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('livewire.product-detail', 'App\Http\Composers\StockStatusComposer');
+
         View::composer('livewire.components.total-amount-in-cart', 'App\Http\Composers\AmountComposer');
         View::composer('livewire.order', 'App\Http\Composers\AmountComposer');
         View::composer('emails.order', 'App\Http\Composers\AmountComposer');
