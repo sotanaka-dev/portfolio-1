@@ -1,0 +1,32 @@
+services:
+  app:
+    build: ./docker/app
+    container_name: laravel_app
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+
+  db:
+    image: mysql
+    container_name: laravel_db
+    ports:
+      - 3306:3306
+    env_file:
+      - ./docker/db/.env
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - 3000:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    volumes:
+      - ./docker/phpmyadmin/sessions:/sessions

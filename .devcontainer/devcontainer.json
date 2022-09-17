@@ -1,0 +1,16 @@
+{
+  "name": "app-container",
+  "dockerComposeFile": ["../compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/var/www/html",
+  "extensions": [
+    "mhutchie.git-graph",
+    "oderwat.indent-rainbow",
+    "streetsidesoftware.code-spell-checker",
+    "esbenp.prettier-vscode",
+    "ecmel.vscode-html-css",
+    "bmewburn.vscode-intelephense-client",
+    "neilbrayfield.php-docblocker",
+    "onecentlin.laravel-extension-pack"
+  ]
+}

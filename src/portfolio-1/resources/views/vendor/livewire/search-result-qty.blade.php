@@ -1,0 +1,1 @@
+{{ $paginator->total() }}&nbsp;Hits
