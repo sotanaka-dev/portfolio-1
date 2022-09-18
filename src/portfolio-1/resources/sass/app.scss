@@ -391,13 +391,17 @@ body {
         padding-left: 4px;
         display: inline-block;
         margin-bottom: 12px;
-        color: $dark_gray;
+        color: $gray;
 
         &::after {
             content: "\020\002a";
             color: $danger;
             font-weight: bold;
         }
+    }
+
+    &:focus-within > &__label {
+        color: $dark_gray;
     }
 
     &__error-message {
@@ -433,7 +437,7 @@ body {
     }
 
     &:focus {
-        outline: solid 1px $black;
+        outline: solid 1px $dark_gray;
     }
 }
 
