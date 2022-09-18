@@ -35,7 +35,7 @@ class ResetAddressee extends Component
 
     public function updatedPostalCode()
     {
-        $this->postal_code = \Util::grantHyphen($this->postal_code);
+        $this->postal_code = \Util::addHyphenToPostalCode($this->postal_code);
     }
 
     public function updatedTel()

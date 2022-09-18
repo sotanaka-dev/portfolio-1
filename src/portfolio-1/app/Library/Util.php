@@ -27,11 +27,10 @@ class Util extends Facade
 
 
     /* ユーザーが入力した郵便番号にハイフンを付与する */
-    public static function grantHyphen($postal_code)
+    public static function addHyphenToPostalCode($input)
     {
-        $postal_code = str_replace("-", "", $postal_code);
-        $postal_code = substr($postal_code, 0, 3) . "-" . substr($postal_code, 3);
-        return $postal_code;
+        $replaced_value = str_replace("-", "", $input);
+        return substr($replaced_value, 0, 3) . "-" . substr($replaced_value, 3);
     }
 
     /* ユーザーが入力した電話番号にハイフンを付与する */
