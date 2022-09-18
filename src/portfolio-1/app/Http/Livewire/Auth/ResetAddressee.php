@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Rules\PostalCodeRule;
+use App\Rules\TelRule;
 
 class ResetAddressee extends Component
 {
@@ -23,7 +24,7 @@ class ResetAddressee extends Component
             'name'        => ['required', 'max:255'],
             'postal_code' => ['required', new PostalCodeRule()],
             'address'     => ['required'],
-            'tel'         => ['required', 'digits_between:10, 11'],
+            'tel'         => ['required', new TelRule()],
         ];
     }
 
@@ -35,6 +36,11 @@ class ResetAddressee extends Component
     public function updatedPostalCode()
     {
         $this->postal_code = \Util::grantHyphen($this->postal_code);
+    }
+
+    public function updatedTel()
+    {
+        $this->tel = \Util::addHyphenToTel($this->tel);
     }
 
     public function render()
