@@ -32,6 +32,11 @@ class Order extends Component
             ->section('content');
     }
 
+    public function pressedExecBtn()
+    {
+        $this->complete();
+    }
+
     public function complete()
     {
         $this->items = session('items');

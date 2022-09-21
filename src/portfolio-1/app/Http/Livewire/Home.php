@@ -13,4 +13,9 @@ class Home extends Component
             ->extends('layouts.template')
             ->section('content');
     }
+
+    public function pressedExecBtn()
+    {
+        return redirect()->route('withdrawal');
+    }
 }

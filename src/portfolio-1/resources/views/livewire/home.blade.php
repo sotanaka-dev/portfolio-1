@@ -1,7 +1,10 @@
 @section('title', 'Home')
 
-<div class="home container-mid">
+<div x-data="{ open: false }" class="home container-mid">
     @include('components.flash-message')
+    @include('livewire.components.modal-dialog', [
+        'message' => __('messages.confirm.withdrawal'),
+    ])
 
     <p class="home__greeting">Hello,&nbsp;{{ $user->name }}.</p>
 
@@ -47,8 +50,7 @@
             </a>
         </li>
         <li class="home__item">
-            <a class="home__link link" href="{{ route('withdrawal') }}"
-                onclick="return confirmation('{{ __('messages.confirm.withdrawal') }}')">
+            <a x-on:click="open=true" class="home__link link">
                 <i class="fa-solid fa-user-slash"></i>&nbsp;退会
             </a>
         </li>
