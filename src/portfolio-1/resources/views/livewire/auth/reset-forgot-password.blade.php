@@ -2,11 +2,12 @@
 
 <div class="container-sm">
     <div class="form-group">
-        <label class="form-group__label" for="email">メールアドレス</label>
-
-        @error('email')
-            <strong class="form-group__error-message">{{ $message }}</strong>
-        @enderror
+        <label class="form-group__label" for="email">
+            メールアドレス
+            @error('email')
+                <strong class="form-group__error-message">{{ $message }}</strong>
+            @enderror
+        </label>
 
         <input type="email" class="form-input" id="email" autocomplete="email" wire:model.lazy="email" />
     </div>
