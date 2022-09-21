@@ -435,6 +435,18 @@ body {
     }
 }
 
+.remember {
+    & + label {
+        color: $gray;
+    }
+
+    &:checked {
+        & + label {
+            color: $dark_gray;
+        }
+    }
+}
+
 .spin-btn {
     overflow: hidden;
     display: flex;

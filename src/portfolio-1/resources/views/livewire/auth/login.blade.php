@@ -41,11 +41,12 @@
 
         <input type="password" class="form-input" id="password" autocomplete="current-password"
             wire:model.lazy="password" />
+    </div>
 
-        <div style="margin-top: 12px;">
-            <input type="checkbox" id="remember" wire:model="remember">
-            <label for="remember">ログイン状態を記憶する</label>
-        </div>
+    <div class="form-group">
+        <input type="checkbox" class="remember" id="remember" wire:model="remember">
+
+        <label for="remember">ログイン状態を記憶する</label>
     </div>
 
     <button class="btn btn--lg btn--black" wire:click="authenticate">ログイン</button>
