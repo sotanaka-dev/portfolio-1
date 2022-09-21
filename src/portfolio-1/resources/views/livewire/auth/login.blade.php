@@ -31,12 +31,13 @@
     <div class="form-group">
         <label class="form-group__label" for="password">
             パスワード
-            <i class="fa-solid fa-eye" id="password_eye_icon"
-                onclick="passwordMaskSwitch('password', 'password_eye_icon')"></i>
+            <i x-on:click="$dispatch('password-toggle', { el: $el })" class="fa-solid fa-eye"></i>
+
+            @error('password')
+                <strong class="form-group__error-message">{{ $message }}</strong>
+            @enderror
         </label>
-        @error('password')
-            <strong class="form-group__error-message">{{ $message }}</strong>
-        @enderror
+
         <input type="password" class="form-input" id="password" autocomplete="current-password"
             wire:model.lazy="password" />
 

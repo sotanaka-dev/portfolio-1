@@ -6,7 +6,7 @@
     {{ Breadcrumbs::render(Route::currentRouteName()) }}
 @endif
 
-<main class="main">
+<main x-data class="main">
     @yield('content')
 </main>
 

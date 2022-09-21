@@ -6,13 +6,12 @@
     <div class="form-group">
         <label class="form-group__label" for="current_password">
             現在のパスワード
-            <i class="fa-solid fa-eye" id="current_password_eye_icon"
-                onclick="passwordMaskSwitch('current_password', 'current_password_eye_icon')"></i>
-        </label>
+            <i x-on:click="$dispatch('password-toggle', { el: $el })" class="fa-solid fa-eye"></i>
 
-        @error('current_password')
-            <strong class="form-group__error-message">{{ $message }}</strong>
-        @enderror
+            @error('current_password')
+                <strong class="form-group__error-message">{{ $message }}</strong>
+            @enderror
+        </label>
 
         <input class="form-input" type="password" id="current_password" autocomplete="current-password" autofocus
             wire:model.lazy="current_password" />
@@ -21,13 +20,12 @@
     <div class="form-group">
         <label class="form-group__label" for="new_password">
             新しいパスワード
-            <i class="fa-solid fa-eye" id="new_password_eye_icon"
-                onclick="passwordMaskSwitch('new_password', 'new_password_eye_icon')"></i>
-        </label>
+            <i x-on:click="$dispatch('password-toggle', { el: $el })" class="fa-solid fa-eye"></i>
 
-        @error('new_password')
-            <strong class="form-group__error-message">{{ $message }}</strong>
-        @enderror
+            @error('new_password')
+                <strong class="form-group__error-message">{{ $message }}</strong>
+            @enderror
+        </label>
 
         <input class="form-input" type="password" id="new_password" autocomplete="new-password"
             wire:model.lazy="new_password" />

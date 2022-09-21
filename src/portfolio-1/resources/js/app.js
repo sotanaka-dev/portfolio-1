@@ -1,6 +1,4 @@
 import "./bootstrap";
-// import "../css/destyle.css";
-// import "../css/app.css";
 
 /* ヘッダー */
 const header = document.getElementById("header");
@@ -33,15 +31,14 @@ window.addEventListener("before_validation", (event) => {
     window.scrollTo(0, 0);
 });
 
-/* パスワードマスク */
-function passwordMaskSwitch(text_box_id, eye_icon_id) {
-    const text_box = document.getElementById(text_box_id);
-    const eye_icon = document.getElementById(eye_icon_id);
-    if (text_box.type === "text") {
-        text_box.type = "password";
-        eye_icon.className = "fa-solid fa-eye";
-    } else {
-        text_box.type = "text";
-        eye_icon.className = "fa-solid fa-eye-slash";
+/* パスワードの表示切替 */
+window.addEventListener("password-toggle", (event) => {
+    const el = event.detail.el;
+    if (el.parentNode.nextElementSibling.type === "text") {
+        el.parentNode.nextElementSibling.type = "password";
+        el.className = "fa-solid fa-eye";
+        return;
     }
-}
+    el.parentNode.nextElementSibling.type = "text";
+    el.className = "fa-solid fa-eye-slash";
+});

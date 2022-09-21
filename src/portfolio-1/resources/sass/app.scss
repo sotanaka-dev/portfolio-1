@@ -392,12 +392,6 @@ body {
         display: inline-block;
         margin-bottom: 12px;
         color: $gray;
-
-        &::after {
-            content: "\020\002a";
-            color: $danger;
-            font-weight: bold;
-        }
     }
 
     &:focus-within > &__label {
