@@ -1,6 +1,6 @@
 @section('title', 'Contact')
 
-<div class="container-sm">
+<div class="form container-sm">
     @include('components.flash-message')
 
     <div class="form-group">
@@ -14,5 +14,5 @@
         <textarea class="form-input form-input--textarea" id="contact_text" rows="10" autofocus wire:model.lazy="text"></textarea>
     </div>
 
-    <button class="btn btn--lg btn--black" wire:click="submitContactForm">送信する</button>
+    <button class="btn" wire:click="submitContactForm">送信する</button>
 </div>

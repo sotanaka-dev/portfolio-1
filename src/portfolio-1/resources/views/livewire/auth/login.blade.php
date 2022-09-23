@@ -1,6 +1,6 @@
 @section('title', 'Login')
 
-<div class="container-sm">
+<div class="form container-sm">
     @include('components.flash-message')
 
     <div class="form-link">
@@ -49,5 +49,5 @@
         <label for="remember">ログイン状態を記憶する</label>
     </div>
 
-    <button class="btn btn--lg btn--black" wire:click="authenticate">ログイン</button>
+    <button class="btn" wire:click="authenticate">ログイン</button>
 </div>

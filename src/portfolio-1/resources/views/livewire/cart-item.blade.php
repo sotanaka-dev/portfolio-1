@@ -7,7 +7,7 @@
         <p class="cart__item-name">{{ $item['name'] }}</p>
         <p class="cart__item-price">&yen;{{ number_format($item['price']) }}</p>
 
-        <div class="form cart__form">
+        <div class="cart__form">
 
             @include('livewire.components.spin-btn')
 

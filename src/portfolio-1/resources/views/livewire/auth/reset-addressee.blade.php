@@ -1,6 +1,6 @@
 @section('title', 'ResetUser')
 
-<div class="container-sm h-adr">
+<div class="form container-sm h-adr">
     @include('components.flash-message')
 
     <div class="form-group">
@@ -51,5 +51,5 @@
         <input type="tel" class="form-input" id="tel" autocomplete="tel-national" wire:model.lazy="tel" />
     </div>
 
-    <button class="btn btn--lg btn--black" wire:click="resetAddressee">会員情報を変更</button>
+    <button class="btn" wire:click="resetAddressee">会員情報を変更</button>
 </div>

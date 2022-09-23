@@ -1,6 +1,6 @@
 @section('title', 'ResetPassword')
 
-<div class="container-sm">
+<div class="form container-sm">
     <div class="form-group">
         <label class="form-group__label" for="email">
             メールアドレス
@@ -28,5 +28,5 @@
 
     <input type="hidden" wire:model.defer="token">
 
-    <button class="btn btn--lg btn--black" wire:click="resetPassword">パスワード再登録</button>
+    <button class="btn" wire:click="resetPassword">パスワード再登録</button>
 </div>

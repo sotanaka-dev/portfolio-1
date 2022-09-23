@@ -7,13 +7,13 @@
         @if ($loop->last)
             @livewire('components.total-amount-in-cart')
 
-            <button class=" btn btn--lg btn--black" onclick="location.href='{{ route('order') }}'">
-                注文画面へ進む
-            </button>
+            <span class="cart__btn-wrap">
+                <a class="btn" href="{{ route('order') }}">注文画面へ進む</a>
+            </span>
         @endif
     @empty
         <p class="empty-item-message"><i class="fa-solid fa-xmark fa-lg"></i>&nbsp;カートは空です。</p>
 
-        <button class="btn btn--lg btn--black" onclick="location.href='{{ route('products') }}'">商品一覧へ</button>
+        <a class="btn" href="{{ route('products') }}">商品一覧へ</a>
     @endforelse
 </div>

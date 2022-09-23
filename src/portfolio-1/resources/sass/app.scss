@@ -371,6 +371,11 @@ body {
 
 /* フォーム部品 */
 
+.form {
+    padding: 72px;
+    border: solid 1px $light_gray;
+}
+
 .form-link {
     margin-bottom: 24px;
     border-bottom: $border;
@@ -401,6 +406,12 @@ body {
     &__error-message {
         color: $danger;
 
+        &::before {
+            content: "\f06a\0020";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+
         &--block {
             display: block;
             margin: 5px 0 20px;
@@ -412,8 +423,8 @@ body {
     width: 100%;
     padding: 12px;
     outline: solid 1px $gray;
+    background-color: $white;
     letter-spacing: 0.2rem;
-    transition: 0.3s;
 
     &--textarea {
         resize: none;
@@ -431,7 +442,7 @@ body {
     }
 
     &:focus {
-        outline: solid 1px $dark_gray;
+        outline: solid 2px $dark_gray;
     }
 }
 
@@ -499,44 +510,27 @@ input[type="number"] {
 /* ボタン */
 
 .btn {
-    border-radius: $radius_value_circle;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border: 2px solid $dark_gray;
+    background-color: $white;
     text-align: center;
     letter-spacing: 0.2rem;
+    color: $dark_gray;
     transition: 0.3s;
 
-    &--sm {
-        padding: 8px 24px;
-    }
-
-    &--lg {
-        width: 100%;
-        padding: 12px;
-    }
-
-    &--black {
+    &:hover {
+        border: 2px solid $black;
         background-color: $black;
-        border: 1px solid $black;
         color: $white;
     }
 
-    &--white {
-        border: 1px solid $dark_gray;
-        color: $dark_gray;
-    }
-
-    &--danger {
-        border: 1px solid $danger;
-        color: $danger;
-    }
-}
-
-.split-btn {
-    display: flex;
-    gap: 24px;
-
-    &__return,
-    &__advance {
-        width: 50%;
+    &::after {
+        content: "\0020\f061";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
     }
 }
 
@@ -1094,15 +1088,20 @@ input[type="number"] {
     &__total-amount-wrap {
         margin-bottom: 36px;
         text-align: right;
+    }
 
-        .cart__total-amount {
-            display: inline-block;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: $border;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
+    &__total-amount {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: $border;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    &__btn-wrap {
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
@@ -1328,6 +1327,13 @@ input[type="number"] {
         }
     }
 
+    /* フォーム部品 */
+
+    .form {
+        padding: 0;
+        border: none;
+    }
+
     /* 確認画面テーブル */
 
     .table {
@@ -1449,14 +1455,18 @@ input[type="number"] {
 
         &__total-amount-wrap {
             text-align: center;
+        }
 
-            .cart__total-amount {
-                font-size: 1.6rem;
-            }
+        &__total-amount {
+            font-size: 1.6rem;
+        }
 
-            .cart__total-amount-note {
-                font-size: 1.2rem;
-            }
+        &__total-amount-note {
+            font-size: 1.2rem;
+        }
+
+        &__btn-wrap {
+            justify-content: center;
         }
     }
 

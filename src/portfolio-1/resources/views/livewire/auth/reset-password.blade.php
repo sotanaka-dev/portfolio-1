@@ -1,6 +1,6 @@
 @section('title', 'ResetPassword')
 
-<div class="container-sm">
+<div class="form container-sm">
     @include('components.flash-message')
 
     <div class="form-group">
@@ -31,5 +31,5 @@
             wire:model.lazy="new_password" />
     </div>
 
-    <button class="btn btn--lg btn--black" wire:click="resetPassword">パスワードを変更</button>
+    <button class="btn" wire:click="resetPassword">パスワードを変更</button>
 </div>

@@ -1,6 +1,6 @@
 @section('title', 'Register')
 
-<div class="container-sm h-adr">
+<div class="form container-sm h-adr">
     @include('components.loading-message', [
         'target' => 'register',
         'message' => __('messages.loading.register'),
@@ -88,5 +88,5 @@
             wire:model.lazy="password" />
     </div>
 
-    <button class="btn btn--lg btn--black" wire:click="register">登録</button>
+    <button class="btn" wire:click="register">登録</button>
 </div>

@@ -1,6 +1,6 @@
 @section('title', 'ResetPassword')
 
-<div class="container-sm">
+<div class="form container-sm">
     @include('components.loading-message', [
         'target' => 'sendResetLinkEmail',
         'message' => __('messages.loading.send_mail'),
@@ -17,5 +17,5 @@
         <input type="email" class="form-input" id="email" autocomplete="email" autofocus wire:model.lazy="email" />
     </div>
 
-    <button class="btn btn--lg btn--black" wire:click="sendResetLinkEmail">メール送信</button>
+    <button class="btn" wire:click="sendResetLinkEmail">メール送信</button>
 </div>

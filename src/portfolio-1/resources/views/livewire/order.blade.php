@@ -53,13 +53,5 @@
         </label>
     </div>
 
-    <div class="split-btn">
-        <div class="split-btn__return">
-            <button class="btn btn--lg btn--black" onclick="location.href='{{ route('cart') }}'">カートに戻る</button>
-        </div>
-
-        <div class="split-btn__advance">
-            <button x-on:click="open=true" class="btn btn--lg btn--black">注文を確定する</button>
-        </div>
-    </div>
+    <button x-on:click="open=true" class="btn">注文を確定する</button>
 </div>
