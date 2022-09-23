@@ -1,6 +1,6 @@
 @section('title', 'Cart')
 
-<div class="cart container-lg">
+<div class="cart container-mid">
     @forelse ($items as $item)
         @livewire('cart-item', ['item' => $item], key($item['id']))
 

@@ -1,6 +1,6 @@
 @section('title', 'OrderHistory')
 
-<div class="order-history container-lg">
+<div class="order-history container-mid">
     @include('components.flash-message')
 
     @forelse ($products->groupBy('order_id') as $key => $group)
