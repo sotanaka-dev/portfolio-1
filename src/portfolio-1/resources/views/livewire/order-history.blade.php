@@ -51,8 +51,10 @@
             @endforeach
         </div>
     @empty
-        <p class="empty-item-message"><i class="fa-solid fa-xmark fa-lg"></i>&nbsp;注文履歴がありません。</p>
+        <div class="empty-item">
+            <p class="empty-item__message"><i class="fa-solid fa-xmark fa-lg"></i>&nbsp;注文履歴がありません。</p>
 
-        <button class="btn btn--lg btn--black" onclick="location.href='{{ route('products') }}'">商品一覧へ</button>
+            <a class="btn" href="{{ route('products') }}">商品一覧へ</a>
+        </div>
     @endforelse
 </div>

@@ -1030,11 +1030,14 @@ input[type="number"] {
 
 /* 空カート（注文履歴） */
 
-.empty-item-message {
-    padding-top: 48px;
-    margin-bottom: 72px;
+.empty-item {
     text-align: center;
-    font-size: 2rem;
+
+    &__message {
+        padding-top: 48px;
+        margin-bottom: 72px;
+        font-size: 2rem;
+    }
 }
 
 /* カート */
