@@ -462,7 +462,6 @@ body {
     overflow: hidden;
     display: flex;
     width: 120px;
-    border-radius: $radius_value_circle;
     border: solid 1px $gray;
 
     & > input {
@@ -1141,12 +1140,6 @@ input[type="number"] {
 /* ホーム */
 
 .home {
-    &__greeting {
-        margin-bottom: 60px;
-        text-align: center;
-        font-weight: bold;
-    }
-
     &__list {
         display: flex;
         flex-wrap: wrap;
@@ -1156,7 +1149,6 @@ input[type="number"] {
     &__item {
         width: calc(100% / 3 - 4px);
         border: solid 1px $gray;
-        border-radius: $radius_value_little;
         text-align: center;
         transition: 0.5s;
 
@@ -1167,7 +1159,7 @@ input[type="number"] {
 
     &__link {
         display: block;
-        padding: 24px;
+        padding: 36px;
     }
 }
 
@@ -1311,7 +1303,7 @@ input[type="number"] {
         }
 
         &__link {
-            padding: 18px;
+            padding: 24px;
         }
     }
 }

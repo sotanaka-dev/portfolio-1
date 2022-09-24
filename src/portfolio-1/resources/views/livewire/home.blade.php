@@ -6,8 +6,6 @@
         'message' => __('messages.confirm.withdrawal'),
     ])
 
-    <p class="home__greeting">Hello,&nbsp;{{ $user->name }}.</p>
-
     <ul class="home__list">
         <li class="home__item">
             <a class="home__link link" href="{{ route('cart') }}">

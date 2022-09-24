@@ -40,6 +40,8 @@ class Login extends Component
         if (Auth::attempt($validated_data, $this->remember)) {
             // Auth::logoutOtherDevices($validated_data['password']);
             $request->session()->regenerate();
+
+            session()->flash('status', __('messages.complete.login'));
             return redirect()->intended('home');
         }
         $this->addError('email', __('auth.failed'));
