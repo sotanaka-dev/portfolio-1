@@ -1,8 +1,7 @@
-<aside class="header-sidebar sidebar">
+<aside x-show="open" x-transition.opacity.scale.0.origin.top.left.duration.300ms.delay.150ms
+    x-on:click.outside="open=false" class="header-sidebar sidebar">
     <div class="sidebar__head">
-        <label for="header_sidebar_check">
-            <i class="fa-solid fa-xmark fa-2xl"></i>
-        </label>
+        <i x-on:click="open=false" class="fa-solid fa-xmark fa-2xl"></i>
     </div>
 
     <nav>

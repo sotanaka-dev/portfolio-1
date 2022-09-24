@@ -19,7 +19,6 @@
         rel="stylesheet">
 
     @vite(['resources/css/destyle.css', 'resources/sass/app.scss', 'resources/js/app.js'])
-
     <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
 
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
@@ -28,15 +27,14 @@
 </head>
 
 <body>
-    <header class="header" id="header">
+    <header x-data="{ open: false }" class="header" id="header">
+        <div x-cloak x-show="open" class="full-overlay">
+            @include('components.header-sidebar')
+        </div>
+
         <div class="header__inner container-lg">
-            <div class="header-sidebar-wrap">
-                <input class="header-sidebar-check" id="header_sidebar_check" type="checkbox">
-                <label class="header-sidebar-back" for="header_sidebar_check"></label>
-                @include('components.header-sidebar')
-                <label class="header-sidebar-open" for="header_sidebar_check">
-                    <i class="fa-solid fa-bars fa-xl"></i>
-                </label>
+            <div class="header__hamburger-menu">
+                <i x-on:click="open=true" class="fa-solid fa-bars fa-xl"></i>
             </div>
 
             <a class="header__logo link" href="{{ route('top') }}">

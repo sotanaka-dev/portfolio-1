@@ -1,6 +1,11 @@
 @section('title', 'Products')
 
-<div class="products container-lg">
+<div x-data="{ sort_open: false, search_open: false }" class="products container-lg">
+    <div x-cloak x-show="sort_open || search_open" class="full-overlay">
+        @include('livewire.products.sort-sidebar')
+        @include('livewire.products.search-sidebar')
+    </div>
+
     <p class="products__select-category">{{ $select_category }}</p>
 
     <section class="products__toolbar">
@@ -8,24 +13,10 @@
             {{ $products->links('livewire::search-result-qty') }}
         </p>
 
-        <div class="products__sidebars">
-            <div class="sort-sidebar-wrap">
-                <input class="sort-sidebar-check" id="sort_sidebar_check" type="checkbox">
-                <label class="sort-sidebar-back" for="sort_sidebar_check"></label>
-                @include('livewire.products.sort-sidebar')
-                <label class="sort-sidebar-open" for="sort_sidebar_check">
-                    @include('livewire.products.sort-icon')
-                </label>
-            </div>
+        <div class="products__sidebar-icon-wrap">
+            @include('livewire.products.sort-icon')
 
-            <div class="search-sidebar-wrap">
-                <input class="search-sidebar-check" id="search_sidebar_check" type="checkbox">
-                <label class="search-sidebar-back" for="search_sidebar_check"></label>
-                @include('livewire.products.search-sidebar')
-                <label class="search-sidebar-open" for="search_sidebar_check">
-                    <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
-                </label>
-            </div>
+            <i x-on:click="search_open=true" class="fa-solid fa-magnifying-glass fa-2xl"></i>
         </div>
     </section>
 

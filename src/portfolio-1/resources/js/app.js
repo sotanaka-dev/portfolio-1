@@ -22,10 +22,6 @@ window.addEventListener("page_switching", (event) => {
     window.scrollTo(0, 0);
 });
 
-window.addEventListener("sort_by", (event) => {
-    document.getElementById("sort_sidebar_check").checked = false;
-});
-
 /* バリデーション前 */
 window.addEventListener("before_validation", (event) => {
     window.scrollTo(0, 0);

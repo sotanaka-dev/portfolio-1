@@ -1,8 +1,7 @@
-<aside class="search-sidebar sidebar">
+<aside x-show="search_open" x-transition.opacity.scale.0.origin.top.right.duration.300ms.delay.150ms
+    x-on:click.outside="search_open=false" class="search-sidebar sidebar">
     <div class="sidebar__head">
-        <label for="search_sidebar_check">
-            <i class="fa-solid fa-xmark fa-2xl"></i>
-        </label>
+        <i x-on:click="search_open=false" class="fa-solid fa-xmark fa-2xl"></i>
     </div>
 
     <div class="search-sidebar__form">

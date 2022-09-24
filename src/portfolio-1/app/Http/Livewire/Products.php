@@ -33,7 +33,6 @@ class Products extends Component
     public function updatingSortBy()
     {
         $this->resetPage();
-        $this->dispatchBrowserEvent('sort_by');
     }
 
     public function updatingKeyword()
