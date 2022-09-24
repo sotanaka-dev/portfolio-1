@@ -41,7 +41,7 @@ class ResetForgotPassword extends Component
 
     public function resetPassword()
     {
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
 

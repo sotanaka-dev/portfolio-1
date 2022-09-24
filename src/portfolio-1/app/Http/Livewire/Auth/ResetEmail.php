@@ -43,7 +43,7 @@ class ResetEmail extends Component
 
     public function resetEmail()
     {
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
 

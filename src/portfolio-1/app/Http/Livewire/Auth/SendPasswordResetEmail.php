@@ -27,7 +27,7 @@ class SendPasswordResetEmail extends Component
 
     public function sendResetLinkEmail()
     {
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
 

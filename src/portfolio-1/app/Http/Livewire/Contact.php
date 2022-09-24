@@ -37,7 +37,7 @@ class Contact extends Component
 
     public function submitContactForm()
     {
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $this->validate();
 

@@ -55,7 +55,7 @@ class Register extends Component
 
     public function register()
     {
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
 

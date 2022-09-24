@@ -18,12 +18,12 @@ window.addEventListener("scroll", (event) => {
 });
 
 /* 商品ページ */
-window.addEventListener("page_switching", (event) => {
+window.addEventListener("page-switching", (event) => {
     window.scrollTo(0, 0);
 });
 
 /* バリデーション前 */
-window.addEventListener("before_validation", (event) => {
+window.addEventListener("before-validation", (event) => {
     window.scrollTo(0, 0);
 });
 

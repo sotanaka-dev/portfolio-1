@@ -52,7 +52,7 @@ class ResetAddressee extends Component
 
     public function resetAddressee()
     {
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
         $this->user->fill($validated_data)->save();

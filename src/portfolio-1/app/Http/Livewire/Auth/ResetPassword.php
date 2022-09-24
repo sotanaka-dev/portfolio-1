@@ -46,7 +46,7 @@ class ResetPassword extends Component
         livewireでうまくミドルウェアを呼び出す方法を探す（もしくはミドルウェアの実行タイミングを変える）
         */
 
-        $this->dispatchBrowserEvent('before_validation');
+        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
 

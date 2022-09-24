@@ -47,7 +47,7 @@ class Products extends Component
 
     public function updatedPage()
     {
-        $this->dispatchBrowserEvent('page_switching');
+        $this->dispatchBrowserEvent('page-switching');
     }
 
     public function render()
