@@ -6,7 +6,7 @@
     @forelse ($products->groupBy('order_id') as $key => $group)
         @if ($loop->first)
             <div class="order-history__select-box-wrap">
-                <select class="order-history__select-box form-input form-input--circle" wire:model="interval">
+                <select class="order-history__select-box form-input" wire:model="interval">
                     <option value="">全期間</option>
                     @foreach ($years as $year)
                         <option value="{{ $year }}">{{ $year }}年</option>

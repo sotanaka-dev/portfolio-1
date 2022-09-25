@@ -5,7 +5,7 @@
     </div>
 
     <div class="search-sidebar__form">
-        <select class="form-input form-input--circle" wire:model="category_id">
+        <select class="form-input" wire:model="category_id">
             <option value="0">ALL</option>
 
             @foreach ($categories as $category)
@@ -13,7 +13,7 @@
             @endforeach
         </select>
 
-        <input type="text" class="form-input form-input--circle" placeholder="キーワード" wire:model="keyword">
+        <input type="text" class="form-input" placeholder="キーワード" wire:model="keyword">
 
         <div class="search-sidebar__search-result-qty-wrap">
             <div class="search-sidebar__search-result-qty">

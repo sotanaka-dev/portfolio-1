@@ -612,21 +612,13 @@ input[type="number"] {
     text-align: center;
 
     &__heading {
-        // padding-bottom: 24px;
-        margin-bottom: 48px;
-        // border-bottom: $border;
-        font-size: 3rem;
+        margin-bottom: 36px;
+        font-size: 2.4rem;
         font-weight: bold;
     }
 
     &__products-list {
         margin-bottom: 48px;
-    }
-
-    &__link-to-products-list {
-        border-bottom: solid 1px $light_gray;
-        font-size: 3rem;
-        font-weight: bold;
     }
 }
 
@@ -927,7 +919,7 @@ input[type="number"] {
         cursor: pointer;
 
         &--select {
-            outline: solid 4px $gray;
+            outline: solid 2px $dark_gray;
         }
     }
 
@@ -1156,12 +1148,10 @@ input[type="number"] {
         background-color: $light;
 
         &--top {
-            border-radius: $radius_value_little $radius_value_little 0 0;
         }
 
         &--bottom {
             justify-content: flex-end;
-            border-radius: 0 0 $radius_value_little $radius_value_little;
             border-top: none;
         }
     }
