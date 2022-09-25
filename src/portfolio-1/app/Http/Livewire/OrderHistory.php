@@ -8,35 +8,30 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderHistory extends Component
 {
-    public $products;
     public $interval;
-    public $years;
-
-    public function mount()
-    {
-        $this->setYears();
-        $this->setProducts();
-    }
 
     public function render()
     {
-        return view('livewire.order-history')
+        return view('livewire.order-history', [
+            'years'    => $this->getYears(),
+            'products' => $this->getProducts(),
+        ])
             ->extends('layouts.template')
             ->section('content');
     }
 
-    private function setYears()
+    private function getYears()
     {
-        $this->years =
+        return
             DB::table('order_details')
             ->selectRaw('DISTINCT(DATE_FORMAT(created_at,"%Y")) AS year')
             ->orderBy('year', 'desc')
             ->pluck('year');
     }
 
-    private function setProducts()
+    private function getProducts()
     {
-        $this->products =
+        return
             DB::table('order_details as od')
             ->select('od.order_id', 'od.created_at', 'od.quantity', 'p.id', 'p.path', 'p.name', 'p.price')
             ->join('products as p', 'od.product_id', '=', 'p.id')
