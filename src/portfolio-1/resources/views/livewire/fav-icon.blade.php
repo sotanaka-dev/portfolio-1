@@ -11,7 +11,7 @@
             fav_items[id] = product
             localStorage.setItem('fav_items', JSON.stringify(fav_items))
             $wire.emitSelf('refresh')
-            $wire.emitTo('components.qty-in-fav-list', 'increment')"
+            $wire.emitTo('qty-in-fav-list', 'increment')"
         class="fav-icon__add speech-balloon-trigger fa-stack">
         <i class="fa-solid fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa-solid fa-heart fa-stack-1x animated-hover faa-pulse"></i>
@@ -24,7 +24,7 @@
             delete fav_items[id]
             localStorage.setItem('fav_items', JSON.stringify(fav_items))
             $wire.emitSelf('refresh')
-            $wire.emitTo('components.qty-in-fav-list', 'decrement')"
+            $wire.emitTo('qty-in-fav-list', 'decrement')"
         class="fav-icon__rm speech-balloon-trigger fa-stack">
         <i class="fa-solid fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa-solid fa-heart fa-stack-1x animated-hover faa-pulse"></i>

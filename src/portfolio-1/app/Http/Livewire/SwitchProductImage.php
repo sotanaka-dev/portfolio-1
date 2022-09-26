@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 
@@ -25,7 +25,7 @@ class SwitchProductImage extends Component
     {
         $this->replacementMainImage();
 
-        return view('livewire.components.switch-product-image');
+        return view('livewire.switch-product-image');
     }
 
     private function replacementMainImage()

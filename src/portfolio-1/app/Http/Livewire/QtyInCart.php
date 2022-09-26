@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
@@ -17,6 +17,6 @@ class QtyInCart extends Component
     {
         $this->qty = \Util::getItemsInTheSession($request)->sum('qty');
 
-        return view('livewire.components.qty-in-cart');
+        return view('livewire.qty-in-cart');
     }
 }

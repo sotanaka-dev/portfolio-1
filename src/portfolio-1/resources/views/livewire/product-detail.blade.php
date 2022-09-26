@@ -2,7 +2,7 @@
 
 <div class="detail container-mid">
 
-    @livewire('components.switch-product-image', ['product' => $product])
+    @livewire('switch-product-image', ['product' => $product])
 
     <div class="detail__info-group">
         <p class="detail__name">{{ $product->name }}</p>
@@ -14,7 +14,7 @@
 
         @if ($stock)
             <div class="detail__spin-btn">
-                @include('livewire.components.spin-btn')
+                @include('components.spin-btn')
             </div>
 
             <button wire:click="addProductToCart" class="btn" type="submit">

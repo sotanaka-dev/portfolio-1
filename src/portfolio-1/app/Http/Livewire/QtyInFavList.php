@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 
@@ -16,7 +16,7 @@ class QtyInFavList extends Component
 
     public function render()
     {
-        return view('livewire.components.qty-in-fav-list');
+        return view('livewire.qty-in-fav-list');
     }
 
     public function increment()

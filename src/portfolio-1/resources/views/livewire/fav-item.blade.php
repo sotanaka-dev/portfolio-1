@@ -3,7 +3,7 @@
         x-on:click="
             delete fav_items[id]
             localStorage.setItem('fav_items', JSON.stringify(fav_items))
-            $wire.emitTo('components.qty-in-fav-list', 'decrement')"
+            $wire.emitTo('qty-in-fav-list', 'decrement')"
         class="fav-list__rm fa-stack speech-balloon-trigger">
         <i class="fa-solid fa-circle fa-stack-2x fa-inverse"></i>
         <i class="fa-solid fa-xmark fa-lg fa-stack-1x"></i>

@@ -2,7 +2,7 @@
 
 <div x-data="{ open: false }" class="home container-mid">
     @include('components.flash-message')
-    @include('livewire.components.modal-dialog', [
+    @include('components.modal-dialog', [
         'message' => __('messages.confirm.withdrawal'),
     ])
 

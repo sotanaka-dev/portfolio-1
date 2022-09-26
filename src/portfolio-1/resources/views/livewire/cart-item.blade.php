@@ -9,7 +9,7 @@
 
         <div class="cart__form">
 
-            @include('livewire.components.spin-btn')
+            @include('components.spin-btn')
 
             <div class="cart__remove-wrap">
                 <button wire:click="removeItem" class="speech-balloon-trigger">

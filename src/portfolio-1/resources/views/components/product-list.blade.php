@@ -1,7 +1,7 @@
 @foreach ($products as $product)
     <div class="products-list__item link link-line">
         <span class="products-list__fav-wrap">
-            @livewire('fav.icon', ['product' => $product], key($product->id))
+            @livewire('fav-icon', ['product' => $product], key($product->id))
         </span>
 
         @if ($product->stock <= 0)

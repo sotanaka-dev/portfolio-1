@@ -52,7 +52,7 @@ class Products extends Component
 
     public function render()
     {
-        return view('livewire.products.index', [
+        return view('livewire.products', [
             'products'        => $this->getProducts(),
             'categories'      => $this->getCategories(),
             'select_category' => $this->getSelectCategory(),

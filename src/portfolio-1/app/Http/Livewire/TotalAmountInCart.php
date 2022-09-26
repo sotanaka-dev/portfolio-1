@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 
@@ -13,7 +13,7 @@ class TotalAmountInCart extends Component
     public function render()
     {
         return view(
-            'livewire.components.total-amount-in-cart',
+            'livewire.total-amount-in-cart',
             ['items' => \Util::getItemsInTheSession()]
         );
     }

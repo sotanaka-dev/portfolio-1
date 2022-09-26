@@ -5,7 +5,7 @@
         'target' => 'pressedExecBtn',
         'message' => __('messages.loading.order'),
     ])
-    @include('livewire.components.modal-dialog', [
+    @include('components.modal-dialog', [
         'message' => __('messages.confirm.order'),
     ])
 

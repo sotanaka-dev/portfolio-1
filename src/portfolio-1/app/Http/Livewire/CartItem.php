@@ -17,8 +17,8 @@ class CartItem extends Component
 
     public function render()
     {
-        $this->emitTo('components.total-amount-in-cart', 'refresh');
-        $this->emitTo('components.qty-in-cart', 'refresh');
+        $this->emitTo('total-amount-in-cart', 'refresh');
+        $this->emitTo('qty-in-cart', 'refresh');
 
         return view('livewire.cart-item');
     }

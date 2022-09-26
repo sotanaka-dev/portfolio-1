@@ -5,7 +5,7 @@
         @livewire('cart-item', ['item' => $item], key($item['id']))
 
         @if ($loop->last)
-            @livewire('components.total-amount-in-cart')
+            @livewire('total-amount-in-cart')
 
             <span class="cart__btn-wrap">
                 <a class="btn" href="{{ route('order') }}">注文画面へ進む</a>

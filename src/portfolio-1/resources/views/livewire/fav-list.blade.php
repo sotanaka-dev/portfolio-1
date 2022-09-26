@@ -4,7 +4,7 @@
 
     <ul class="fav-list__items">
         @forelse ($fav_items as $fav_item)
-            @livewire('fav.item', ['fav_item' => $fav_item], key($fav_item['id']))
+            @livewire('fav-item', ['fav_item' => $fav_item], key($fav_item['id']))
         @empty
             <div class="empty-item">
                 <p x-cloak x-show="!Object.keys(fav_items).length" class="empty-item__message">

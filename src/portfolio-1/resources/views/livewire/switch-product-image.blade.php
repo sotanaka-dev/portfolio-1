@@ -3,7 +3,7 @@
         <img class="detail__main-image image" src="{{ asset($main_image_path) }}">
 
         <span class="detail__fav-wrap">
-            @livewire('fav.icon', ['product' => $product])
+            @livewire('fav-icon', ['product' => $product])
         </span>
 
         <span wire:click="decrementTmbIndex" class="detail__image-replacement detail__image-replacement--prev fa-stack">
