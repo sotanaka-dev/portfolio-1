@@ -7,17 +7,11 @@ $gray: #888;
 $dark_gray: #333;
 $black: #000;
 $danger: #dc3545;
-$warning: #ffc107;
 $success: #459647;
 $success_bg: #ecfff5;
 $pink: #e81e63;
-$light_pink: #f8d7da;
 
-$border: 1px solid $light_gray;
-
-$radius_value_little: 2px;
 $radius_value_circle: 9999px;
-
 $header_height: 100px;
 
 /* ---------- 共通部分 ---------- */
@@ -170,7 +164,7 @@ body {
     width: 250px;
     padding-top: 42px;
     background: $white;
-    border: $border;
+    border: 1px solid $light_gray;
 
     &__head {
         padding-left: 24px;
@@ -183,10 +177,10 @@ body {
 
     &__item {
         text-align: center;
-        border-top: $border;
+        border-top: 1px solid $light_gray;
 
         &:last-child {
-            border-bottom: $border;
+            border-bottom: 1px solid $light_gray;
         }
     }
 
@@ -246,7 +240,7 @@ body {
     &__search-result-qty {
         display: inline-block;
         padding-bottom: 4px;
-        border-bottom: $border;
+        border-bottom: 1px solid $light_gray;
         font-weight: bold;
     }
 }
@@ -313,10 +307,6 @@ body {
 
 .main {
     position: relative;
-    /*
-    mainというブロックにpaddingを付けてるのがまずいと思ったら
-    bodyにクラス名を付けてここをエレメントにする
-    */
     padding: 96px 24px 144px;
 }
 
@@ -348,7 +338,7 @@ body {
 
 .form-link {
     margin-bottom: 24px;
-    border-bottom: $border;
+    border-bottom: 1px solid $light_gray;
 
     &__item {
         margin-bottom: 18px;
@@ -398,11 +388,6 @@ body {
 
     &--textarea {
         resize: none;
-    }
-
-    &--circle {
-        padding: 10px 20px;
-        border-radius: $radius_value_circle;
     }
 
     &--border-none {
@@ -463,17 +448,10 @@ input[type="number"] {
     left: 0;
     width: 100%;
     padding: 24px;
+    background-color: $success_bg;
     box-shadow: 0 8px 25px -25px $dark_gray;
     text-align: center;
-
-    &--success {
-        background-color: $success_bg;
-        color: $success;
-    }
-
-    &--danger {
-        background-color: $danger;
-    }
+    color: $success;
 }
 
 /* ボタン */
@@ -586,12 +564,12 @@ input[type="number"] {
     &__cell {
         display: table-cell;
         padding: 36px 0;
-        border-top: $border;
+        border-top: 1px solid $light_gray;
         text-align: center;
     }
 
     &__row:last-child &__cell {
-        border-bottom: $border;
+        border-bottom: 1px solid $light_gray;
     }
 }
 
@@ -1009,12 +987,12 @@ input[type="number"] {
         justify-content: space-between;
         align-items: center;
         padding: 24px 12px;
-        border-top: $border;
+        border-top: 1px solid $light_gray;
     }
 
     &__item:nth-last-of-type(2) {
         margin-bottom: 60px;
-        border-bottom: $border;
+        border-bottom: 1px solid $light_gray;
     }
 
     &__info-group {
@@ -1058,7 +1036,7 @@ input[type="number"] {
         display: inline-block;
         margin-bottom: 12px;
         padding-bottom: 6px;
-        border-bottom: $border;
+        border-bottom: 1px solid $light_gray;
         font-size: 1.8rem;
         font-weight: bold;
     }
@@ -1125,6 +1103,8 @@ input[type="number"] {
     }
 }
 
+/* 注文履歴 */
+
 .order-history {
     &__select-box-wrap {
         text-align: right;
@@ -1144,12 +1124,9 @@ input[type="number"] {
         display: flex;
         justify-content: space-between;
         padding: 12px;
-        border: $border;
+        border: 1px solid $light_gray;
         background-color: $light;
         color: $gray;
-
-        &--top {
-        }
 
         &--bottom {
             justify-content: flex-end;
@@ -1160,7 +1137,7 @@ input[type="number"] {
     &__item {
         display: flex;
         padding: 12px;
-        border: $border;
+        border: 1px solid $light_gray;
         border-top: none;
     }
 
@@ -1202,7 +1179,7 @@ input[type="number"] {
 }
 
 .select-payment {
-    border: $border;
+    border: 1px solid $light_gray;
 
     &__item {
         display: block;
@@ -1210,7 +1187,7 @@ input[type="number"] {
     }
 
     &__item:not(&__item:last-child) {
-        border-bottom: $border;
+        border-bottom: 1px solid $light_gray;
     }
 }
 
@@ -1329,7 +1306,7 @@ input[type="number"] {
             &__heading {
                 display: inline-block;
                 margin: 8px 0 3px;
-                border-bottom: $border;
+                border-bottom: 1px solid $light_gray;
             }
         }
     }
@@ -1435,6 +1412,8 @@ input[type="number"] {
             padding: 12px;
         }
     }
+
+    /* 注文履歴 */
 
     .order-history {
         &__heading {
