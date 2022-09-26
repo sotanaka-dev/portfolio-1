@@ -14,9 +14,6 @@
                     <li class="breadcrumb__item breadcrumb__item--active">{{ $breadcrumb->title }}</li>
                 @endif
             @endforeach
-
-            {{-- <span style="color: white; text-align: right; font-size: 1.8rem; font-weight: normal;">{{ now() }}</span> --}}
-
         </ol>
     </div>
 @endunless

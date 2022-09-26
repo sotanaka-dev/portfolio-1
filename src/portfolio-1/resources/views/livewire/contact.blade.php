@@ -11,8 +11,8 @@
             @enderror
         </label>
 
-        <textarea class="form-input form-input--textarea" id="contact_text" rows="10" autofocus wire:model.lazy="text"></textarea>
+        <textarea wire:model.lazy="text" id="contact_text" class="form-input form-input--textarea" autofocus rows="10"></textarea>
     </div>
 
-    <button class="btn" wire:click="submitContactForm">送信する</button>
+    <button wire:click="submitContactForm" class="btn">送信する</button>
 </div>

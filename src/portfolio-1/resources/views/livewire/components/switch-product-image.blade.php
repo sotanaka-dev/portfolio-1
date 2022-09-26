@@ -19,7 +19,7 @@
 
     <div class="detail__tmb-wrap">
         @foreach ($image_paths as $path)
-            <img x-ref="{{ $prefix . $loop->index }}" wire:click="setTmbIndex({{ $loop->index }})" class="detail__tmb"
+            <img wire:click="setTmbIndex({{ $loop->index }})" x-ref="{{ $prefix . $loop->index }}" class="detail__tmb"
                 src="{{ asset($path) }}">
         @endforeach
     </div>

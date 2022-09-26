@@ -13,8 +13,8 @@
             @enderror
         </label>
 
-        <input class="form-input" type="password" id="current_password" autocomplete="current-password" autofocus
-            wire:model.lazy="current_password" />
+        <input wire:model.lazy="current_password" id="current_password" class="form-input" type="password" autofocus
+            autocomplete="current-password" />
     </div>
 
     <div class="form-group">
@@ -27,9 +27,9 @@
             @enderror
         </label>
 
-        <input class="form-input" type="password" id="new_password" autocomplete="new-password"
-            wire:model.lazy="new_password" />
+        <input wire:model.lazy="new_password" id="new_password" class="form-input" type="password"
+            autocomplete="new-password" />
     </div>
 
-    <button class="btn" wire:click="resetPassword">パスワードを変更</button>
+    <button wire:click="resetPassword" class="btn">パスワードを変更</button>
 </div>

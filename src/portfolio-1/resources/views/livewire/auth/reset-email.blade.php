@@ -14,8 +14,8 @@
             @enderror
         </label>
 
-        <input type="email" class="form-input" id="email" autocomplete="email" autofocus wire:model.lazy="email" />
+        <input wire:model.lazy="email" id="email" class="form-input" type="email" autofocus autocomplete="email" />
     </div>
 
-    <button class="btn" wire:click="resetEmail">確認メールを送信</button>
+    <button wire:click="resetEmail" class="btn">確認メールを送信</button>
 </div>

@@ -25,8 +25,8 @@
             @enderror
         </label>
 
-        <input type="email" class="form-input" id="email" autocomplete="email" autofocus
-            wire:model.lazy="email" />
+        <input wire:model.lazy="email" id="email" class="form-input" type="email" autofocus
+            autocomplete="email" />
     </div>
 
     <div class="form-group">
@@ -39,15 +39,15 @@
             @enderror
         </label>
 
-        <input type="password" class="form-input" id="password" autocomplete="current-password"
-            wire:model.lazy="password" />
+        <input wire:model.lazy="password" id="password" class="form-input" type="password"
+            autocomplete="current-password" />
     </div>
 
     <div class="form-group">
-        <input type="checkbox" class="remember" id="remember" wire:model="remember">
+        <input wire:model="remember" id="remember" class="remember" type="checkbox">
 
         <label for="remember">ログイン状態を記憶する</label>
     </div>
 
-    <button class="btn" wire:click="authenticate">ログイン</button>
+    <button wire:click="authenticate" class="btn">ログイン</button>
 </div>

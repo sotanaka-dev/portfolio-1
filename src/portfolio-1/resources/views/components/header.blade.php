@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <header x-data="{ open: false }" class="header" id="header">
+    <header x-data="{ open: false }" id="header" class="header">
         <div x-cloak x-show="open" class="full-overlay">
             @include('components.header-sidebar')
         </div>

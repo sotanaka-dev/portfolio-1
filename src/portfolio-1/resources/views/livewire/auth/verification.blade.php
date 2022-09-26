@@ -15,11 +15,11 @@
             <i class="fa-solid fa-link"></i>&nbsp;メールアドレスを再登録する
         </a>
 
-        <span class="link link-line" onclick="document.getElementById('form').submit();">
+        <span onclick="document.getElementById('form').submit()" class="link link-line">
             <i class="fa-solid fa-envelope"></i>&nbsp;確認メールを再送信する
         </span>
 
-        <form class="verification__resend-form" id="form" method="POST"
+        <form id="form" class="verification__resend-form" method="POST"
             action="{{ route('verification.resend') }}">
             @csrf
         </form>

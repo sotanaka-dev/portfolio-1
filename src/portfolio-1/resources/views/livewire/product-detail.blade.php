@@ -17,7 +17,7 @@
                 @include('livewire.components.spin-btn')
             </div>
 
-            <button class="btn" type="submit" wire:click="addProductToCart">
+            <button wire:click="addProductToCart" class="btn" type="submit">
                 カートに追加
             </button>
         @endif

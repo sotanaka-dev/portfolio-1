@@ -9,7 +9,7 @@
             @enderror
         </label>
 
-        <input type="email" class="form-input" id="email" autocomplete="email" wire:model.lazy="email" />
+        <input wire:model.lazy="email" id="email" class="form-input" type="email" autocomplete="email" />
     </div>
 
     <div class="form-group">
@@ -22,11 +22,11 @@
             @enderror
         </label>
 
-        <input type="password" class="form-input" id="password" autocomplete="new-password" autofocus
-            wire:model.lazy="password" />
+        <input wire:model.lazy="password" id="password" class="form-input" type="password" autofocus
+            autocomplete="new-password" />
     </div>
 
-    <input type="hidden" wire:model.defer="token">
+    <input wire:model.defer="token" type="hidden">
 
-    <button class="btn" wire:click="resetPassword">パスワード再登録</button>
+    <button wire:click="resetPassword" class="btn">パスワード再登録</button>
 </div>

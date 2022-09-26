@@ -22,8 +22,8 @@
             @enderror
         </label>
 
-        <input type="text" class="form-input" id="name" autocomplete="name" autofocus
-            wire:model.lazy="name" />
+        <input wire:model.lazy="name" id="name" class="form-input" type="text" autofocus
+            autocomplete="name" />
     </div>
 
     <span class="p-country-name" style="display:none;">Japan</span>
@@ -36,8 +36,8 @@
             @enderror
         </label>
 
-        <input type="text" class="form-input p-postal-code" id="postal_code" autocomplete="postal-code"
-            wire:model.lazy="postal_code" />
+        <input wire:model.lazy="postal_code" id="postal_code" class="form-input p-postal-code" type="text"
+            autocomplete="postal-code" />
     </div>
 
     <div class="form-group">
@@ -48,8 +48,8 @@
             @enderror
         </label>
 
-        <input type="text" class="form-input p-region p-locality p-street-address p-extended-address" id="address"
-            wire:model.lazy="address" />
+        <input wire:model.lazy="address" id="address"
+            class="form-input p-region p-locality p-street-address p-extended-address" type="text" />
     </div>
 
     <div class="form-group">
@@ -60,7 +60,7 @@
             @enderror
         </label>
 
-        <input type="tel" class="form-input" id="tel" autocomplete="tel-national" wire:model.lazy="tel" />
+        <input wire:model.lazy="tel" id="tel" class="form-input" type="tel" autocomplete="tel-national" />
     </div>
 
     <div class="form-group">
@@ -71,7 +71,7 @@
             @enderror
         </label>
 
-        <input type="email" class="form-input" id="email" autocomplete="email" wire:model.lazy="email" />
+        <input wire:model.lazy="email" id="email" class="form-input" type="email" autocomplete="email" />
     </div>
 
     <div class="form-group">
@@ -84,9 +84,9 @@
             @enderror
         </label>
 
-        <input type="password" class="form-input" id="password" autocomplete="new-password"
-            wire:model.lazy="password" />
+        <input wire:model.lazy="password" id="password" class="form-input" type="password"
+            autocomplete="new-password" />
     </div>
 
-    <button class="btn" wire:click="register">登録</button>
+    <button wire:click="register" class="btn">登録</button>
 </div>

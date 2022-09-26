@@ -3,7 +3,7 @@
         <i class="fa-solid fa-minus fa-lg"></i>
     </div>
 
-    <input x-model.lazy="$wire.qty" type="number" class="form-input form-input--border-none">
+    <input x-model.lazy="$wire.qty" class="form-input form-input--border-none" type="number">
 
     <div x-on:click="$wire.qty < $wire.stock && $wire.qty++" class="spin-btn--plus">
         <i class="fa-solid fa-plus fa-lg"></i>

@@ -38,17 +38,17 @@
 
     <div class="order__select-payment select-payment">
         <label class="select-payment__item" for="credit">
-            <input type="radio" name="payment" id="credit" value="クレジットカード" wire:model.defer="payment" checked>
+            <input wire:model.defer="payment" id="credit" type="radio" checked name="payment" value="クレジットカード">
             クレジットカード
         </label>
 
         <label class="select-payment__item" for="convenience">
-            <input type="radio" name="payment" id="convenience" value="コンビニ決済" wire:model.defer="payment">
+            <input wire:model.defer="payment" id="convenience" type="radio" name="payment" value="コンビニ決済">
             コンビニ決済
         </label>
 
         <label class="select-payment__item" for="cash">
-            <input type="radio" name="payment" id="cash" value="代金引換" wire:model.defer="payment">
+            <input wire:model.defer="payment" id="cash" type="radio" name="payment" value="代金引換">
             代金引換
         </label>
     </div>
