@@ -5,24 +5,32 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Addressee;
 
 use App\Events\Order as OrderEvent;
 
 class Order extends Component
 {
-    private const INIT_VALUE = 'クレジットカード';
-
-    public $user;
     public $items;
-    public $payment = self::INIT_VALUE;
+    public $addressees;
+    public $select_addressee_id;
+    public $select_addressee;
 
     public function mount()
     {
         if (session()->missing('items')) {
             return redirect()->route('cart');
         }
-        $this->user  = Auth::user();
+
+        if (Addressee::where('user_id', '=', Auth::id())->doesntExist()) {
+            return redirect()->route('settings.addressees');
+        }
+
         $this->items = session('items');
+
+        $this->addressees = $this->getAddressees();
+        $this->select_addressee_id = $this->addressees->first()->id;
+        $this->select_addressee = $this->getAddressee();
     }
 
     public function render()
@@ -32,6 +40,21 @@ class Order extends Component
             ->section('content');
     }
 
+    public function updatedSelectAddresseeId()
+    {
+        $this->select_addressee = $this->getAddressee();
+    }
+
+    private function getAddressees()
+    {
+        return Addressee::where('user_id', '=', Auth::id())->get();
+    }
+
+    private function getAddressee()
+    {
+        return Addressee::where('id', '=', $this->select_addressee_id)->first();
+    }
+
     public function pressedExecBtn()
     {
         $this->complete();
@@ -39,13 +62,10 @@ class Order extends Component
 
     public function complete()
     {
-        $this->items = session('items');
-
         $order_id = $this->getOrderIdAfterInsertOrder();
-
         $this->insertOrderDetails($order_id);
 
-        OrderEvent::dispatch($this->user, $this->items, $this->payment);
+        OrderEvent::dispatch(Auth::user(), $this->select_addressee, $this->items);
 
         session()->forget('items');
 
@@ -58,8 +78,8 @@ class Order extends Component
         return
             DB::table('orders')
             ->insertGetId([
-                'user_id' => $this->user->id,
-                'payment' => $this->payment,
+                'user_id' => Auth::id(),
+                'addressee_id' => $this->select_addressee_id,
             ]);
     }
 

@@ -12,19 +12,19 @@ class Order extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
+    public $addressee;
     public $items;
-    public $payment;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $items, $payment)
+    public function __construct($user, $addressee, $items)
     {
         $this->user = $user;
+        $this->addressee = $addressee;
         $this->items = $items;
-        $this->payment = $payment;
     }
 
     /**

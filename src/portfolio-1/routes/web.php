@@ -77,14 +77,6 @@ Route::get('settings/email/reset', App\Http\Livewire\Auth\ResetEmail::class)
     ->middleware('auth')
     ->name('settings.email.reset');
 
-/* お届け先 */
-
-Route::get('settings/addressee/reset', App\Http\Livewire\Auth\ResetAddressee::class)
-    ->name('settings.addressee.reset')
-    ->middleware('verified');
-
-
-
 
 
 /* トップ */
@@ -108,9 +100,25 @@ Route::get('access', App\Http\Livewire\Access::class)
     ->name('access');
 
 /* ホーム */
+
 Route::get('home', App\Http\Livewire\Home::class)
     ->name('home')
     ->middleware('verified');
+
+/* お届け先 */
+
+Route::get('settings/addressees', App\Http\Livewire\Addressees::class)
+    ->name('settings.addressees')
+    ->middleware('verified');
+
+Route::get('settings/addressees/add', App\Http\Livewire\AddAddressee::class)
+    ->name('settings.addressees.add')
+    ->middleware('verified');
+
+Route::get('settings/addressees/edit', App\Http\Livewire\EditAddressee::class)
+    ->name('settings.addressees.edit')
+    ->middleware('verified');
+
 
 /* 問い合わせ */
 

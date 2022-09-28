@@ -27,6 +27,11 @@ window.addEventListener("before-validation", (event) => {
     window.scrollTo(0, 0);
 });
 
+/* お届け先削除後 */
+window.addEventListener("addressee-removed", (event) => {
+    window.scrollTo(0, 0);
+});
+
 /* パスワードの表示切替 */
 window.addEventListener("password-toggle", (event) => {
     const el = event.detail.el;

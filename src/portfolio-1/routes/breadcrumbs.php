@@ -85,16 +85,6 @@ Breadcrumbs::for(
         ->push('ResetEmail', route('settings.email.reset'))
 );
 
-/* お届け先 */
-
-Breadcrumbs::for(
-    'settings.addressee.reset',
-    fn (BreadcrumbTrail $trail) =>
-    $trail
-        ->parent('home')
-        ->push('ResetAddressee', route('settings.addressee.reset'))
-);
-
 /* トップ */
 
 Breadcrumbs::for(
@@ -142,6 +132,32 @@ Breadcrumbs::for(
     $trail
         ->parent('top')
         ->push('Home', route('home'))
+);
+
+/* お届け先 */
+
+Breadcrumbs::for(
+    'settings.addressees',
+    fn (BreadcrumbTrail $trail) =>
+    $trail
+        ->parent('home')
+        ->push('Addressees', route('settings.addressees'))
+);
+
+Breadcrumbs::for(
+    'settings.addressees.add',
+    fn (BreadcrumbTrail $trail) =>
+    $trail
+        ->parent('settings.addressees')
+        ->push('AddAddressee', route('settings.addressees.add'))
+);
+
+Breadcrumbs::for(
+    'settings.addressees.edit',
+    fn (BreadcrumbTrail $trail) =>
+    $trail
+        ->parent('settings.addressees')
+        ->push('EditAddressee', route('settings.addressees.edit'))
 );
 
 /* 問い合わせ */

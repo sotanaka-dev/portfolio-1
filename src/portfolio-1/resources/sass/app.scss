@@ -353,7 +353,6 @@ body {
     }
 
     &__label {
-        padding-left: 4px;
         display: inline-block;
         margin-bottom: 12px;
         color: $gray;
@@ -475,7 +474,7 @@ input[type="number"] {
     }
 
     &::after {
-        content: "\0020\f061";
+        content: "\0020\f04b";
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
     }
@@ -548,28 +547,6 @@ input[type="number"] {
         &:hover {
             border-top: solid 1px $dark_gray;
         }
-    }
-}
-
-/* 確認画面テーブル */
-
-.table {
-    display: table;
-    width: 100%;
-
-    &__row {
-        display: table-row;
-    }
-
-    &__cell {
-        display: table-cell;
-        padding: 36px 0;
-        border-top: 1px solid $light_gray;
-        text-align: center;
-    }
-
-    &__row:last-child &__cell {
-        border-bottom: 1px solid $light_gray;
     }
 }
 
@@ -974,7 +951,7 @@ input[type="number"] {
 
     &__message {
         padding-top: 48px;
-        margin-bottom: 72px;
+        margin-bottom: 60px;
         font-size: 2rem;
     }
 }
@@ -1159,35 +1136,82 @@ input[type="number"] {
     }
 }
 
-/* 注文確認 */
+/* お届け先 */
 
-.order {
-    &__table {
-        margin-bottom: 48px;
-    }
-
-    &__select-payment {
-        margin-bottom: 48px;
-    }
-
-    &__loading {
-        width: 100%;
+.addressees {
+    &__item {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 12px;
+        padding: 24px 0;
+        border-top: solid 1px $light_gray;
         text-align: center;
-        font-size: 2rem;
-        color: $gray;
+    }
+
+    &__item:nth-last-of-type(1) {
+        margin-bottom: 60px;
+        border-bottom: solid 1px $light_gray;
+    }
+
+    &__icon-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 24px;
+    }
+
+    &__edit,
+    &__remove {
+        position: relative;
+    }
+
+    &__speech-balloon {
+        left: -12px;
+        bottom: 24px;
+    }
+
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
     }
 }
 
-.select-payment {
-    border: 1px solid $light_gray;
+/* 注文 */
 
-    &__item {
-        display: block;
-        padding: 15px;
+.order {
+    &__info-group {
+        padding: 36px;
+        margin-bottom: 24px;
+        border: solid 1px $light_gray;
+
+        &:nth-last-child(2) {
+            margin-bottom: 60px;
+        }
     }
 
-    &__item:not(&__item:last-child) {
-        border-bottom: 1px solid $light_gray;
+    &__info-group-item {
+        display: flex;
+        flex-direction: column;
+        row-gap: 6px;
+
+        & > h6 {
+            padding-bottom: 6px;
+            border-bottom: solid 1px $light_gray;
+        }
+
+        &:not(&:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__link {
+        display: inline-flex;
+        margin-top: 12px;
+    }
+
+    &__btn-wrap {
+        text-align: center;
     }
 }
 
@@ -1247,44 +1271,11 @@ input[type="number"] {
 @media (max-width: 37.5em /* 600 */) {
     /* ---------- 共通部分 ---------- */
 
-    /* ボタン */
-
-    .split-btn {
-        flex-wrap: wrap-reverse;
-
-        &__return,
-        &__advance {
-            width: 100%;
-        }
-    }
-
     /* フォーム部品 */
 
     .form {
         padding: 0;
         border: none;
-    }
-
-    /* 確認画面テーブル */
-
-    .table {
-        &__cell {
-            display: block;
-        }
-
-        &__cell:first-child {
-            padding: 24px 0 0;
-            margin-bottom: 24px;
-        }
-
-        &__cell:last-child {
-            padding: 0 0 24px;
-            border-top: none;
-        }
-
-        &__row:last-child &__cell:first-child {
-            border-bottom: none;
-        }
     }
 
     /* ---------- 各ページ ---------- */

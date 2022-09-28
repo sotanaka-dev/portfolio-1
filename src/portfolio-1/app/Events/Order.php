@@ -15,19 +15,19 @@ class Order
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $user;
+    public $addressee;
     public $items;
-    public $payment;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user, $items, $payment)
+    public function __construct($user, $addressee, $items)
     {
         $this->user = $user;
+        $this->addressee = $addressee;
         $this->items = $items;
-        $this->payment = $payment;
     }
 
     /**

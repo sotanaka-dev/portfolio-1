@@ -9,49 +9,62 @@
         'message' => __('messages.confirm.order'),
     ])
 
-    <div class="order__table table">
-        <div class="table__row">
-            <span class="table__cell">お名前</span>
-            <span class="table__cell">{{ $user->name }}</span>
+
+    <div class="order__info-group">
+        <div x-data="{ select_open: false }" class="form-group">
+            <label x-on:click="select_open=!select_open" class="form-group__label" for="select_box">
+                お届け先を変更する
+            </label>
+
+            <select wire:model="select_addressee_id" x-cloak x-show="select_open" id="select_box" class="form-input">
+                @foreach ($addressees as $addressee)
+                    <option value="{{ $addressee->id }}">
+                        &#12306;{{ $addressee->postal_code }}&nbsp;{{ $addressee->address }}&nbsp;{{ $addressee->name }}
+                    </option>
+                @endforeach
+            </select>
         </div>
 
-        <div class="table__row">
-            <span class="table__cell">お届け先住所</span>
-            <span class="table__cell">&#12306;{{ $user->postal_code }}&nbsp;&nbsp;{{ $user->address }}</span>
+        <div class="order__info-group-item">
+            <h6>配送先</h6>
+            <p>&#12306;{{ $select_addressee->postal_code }}</p>
+            <p>{{ $select_addressee->address }}</p>
+            <p>{{ $select_addressee->name }}</p>
         </div>
 
-        <div class="table__row">
-            <span class="table__cell">メールアドレス</span>
-            <span class="table__cell">{{ $user->email }}</span>
+        <div class="order__info-group-item">
+            <h6>連絡先</h6>
+            <p>{{ $select_addressee->tel }}</p>
+            <p>{{ Auth::user()->email }}</p>
         </div>
 
-        <div class="table__row">
-            <span class="table__cell">電話番号</span>
-            <span class="table__cell">{{ $user->tel }}</span>
-        </div>
+        <div class="order__link order__info-group-item">
+            <a class="link link-line" href="{{ route('settings.addressees.edit', ['id' => $select_addressee->id]) }}">
+                <i class="fa-solid fa-pen-to-square"></i>&nbsp;このお届け先を編集する
+            </a>
 
-        <div class="table__row">
-            <span class="table__cell">ご請求金額</span>
-            <span class="table__cell">&yen;{{ number_format($total_amount) }}&nbsp;&#40;税込&#41;</span>
+            <a class="link link-line" href="{{ route('settings.addressees.add') }}">
+                <i class="fa-solid fa-pen-to-square"></i>&nbsp;新しいお届け先を追加する
+            </a>
         </div>
     </div>
 
-    <div class="order__select-payment select-payment">
-        <label class="select-payment__item" for="credit">
-            <input wire:model.defer="payment" id="credit" type="radio" checked name="payment" value="クレジットカード">
-            クレジットカード
-        </label>
+    <div class="order__info-group">
+        <div class="order__info-group-item">
+            <h6>注文商品</h6>
+            @foreach ($items as $item)
+                <p>{{ $item['name'] }}&nbsp;&yen;{{ number_format($item['price']) }}&nbsp;&times;{{ $item['qty'] }}
+                </p>
+            @endforeach
+        </div>
 
-        <label class="select-payment__item" for="convenience">
-            <input wire:model.defer="payment" id="convenience" type="radio" name="payment" value="コンビニ決済">
-            コンビニ決済
-        </label>
-
-        <label class="select-payment__item" for="cash">
-            <input wire:model.defer="payment" id="cash" type="radio" name="payment" value="代金引換">
-            代金引換
-        </label>
+        <div class="order__info-group-item">
+            <h6>合計金額</h6>
+            <p>&yen;{{ number_format($total_amount) }}&nbsp;&#40;税込&#41;</p>
+        </div>
     </div>
 
-    <button x-on:click="open=true" class="btn">注文を確定する</button>
+    <div class="order__btn-wrap">
+        <button x-on:click="open=true" class="btn">注文を確定する</button>
+    </div>
 </div>

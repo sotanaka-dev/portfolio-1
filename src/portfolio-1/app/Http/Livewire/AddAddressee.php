@@ -1,22 +1,19 @@
 <?php
 
-namespace App\Http\Livewire\Auth;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Rules\PostalCodeRule;
 use App\Rules\TelRule;
+use App\Models\Addressee;
 
-class ResetAddressee extends Component
+class AddAddressee extends Component
 {
-    public function mount()
-    {
-        $this->user        = Auth::user();
-        $this->name        = $this->user->name;
-        $this->postal_code = $this->user->postal_code;
-        $this->address     = $this->user->address;
-        $this->tel         = $this->user->tel;
-    }
+    public $name;
+    public $postal_code;
+    public $address;
+    public $tel;
 
     protected function rules()
     {
@@ -28,9 +25,9 @@ class ResetAddressee extends Component
         ];
     }
 
-    public function updated($property_name)
+    public function updated($propertyName)
     {
-        $this->validateOnly($property_name);
+        $this->validateOnly($propertyName);
     }
 
     public function updatedPostalCode()
@@ -45,18 +42,26 @@ class ResetAddressee extends Component
 
     public function render()
     {
-        return view('livewire.auth.reset-addressee')
+        return view('livewire.add-addressee')
             ->extends('layouts.template')
-            ->section('content');;
+            ->section('content');
     }
 
-    public function resetAddressee()
+    public function addAddressee()
     {
         $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
-        $this->user->fill($validated_data)->save();
 
-        session()->flash('status', __('messages.complete.reset_user'));
+        Addressee::create([
+            'user_id'     => Auth::id(),
+            'name'        => $validated_data['name'],
+            'postal_code' => $validated_data['postal_code'],
+            'address'     => $validated_data['address'],
+            'tel'         => $validated_data['tel'],
+        ]);
+
+        session()->flash('status', __('messages.complete.add_addressee'));
+        return redirect()->route('settings.addressees');
     }
 }

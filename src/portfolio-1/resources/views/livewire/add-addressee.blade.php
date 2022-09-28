@@ -1,8 +1,6 @@
-@section('title', 'ResetUser')
+@section('title', 'AddAddressee')
 
 <div class="form container-sm h-adr">
-    @include('components.flash-message')
-
     <div class="form-group">
         <label class="form-group__label" for="name">
             お名前
@@ -11,7 +9,7 @@
             @enderror
         </label>
 
-        <input wire:model.lazy="name" type="text" id="name" class="form-input" autofocus autocomplete="name" />
+        <input wire:model.lazy="name" id="name" class="form-input" type="text" autofocus autocomplete="name" />
     </div>
 
     <span class="p-country-name" style="display:none;">Japan</span>
@@ -51,5 +49,5 @@
         <input wire:model.lazy="tel" id="tel" class="form-input" type="tel" autocomplete="tel-national" />
     </div>
 
-    <button wire:click="resetAddressee" class="btn">会員情報を変更</button>
+    <button wire:click="addAddressee" class="btn">お届け先を追加</button>
 </div>

@@ -29,10 +29,10 @@ class SendOrderNotification
     public function handle(OrderEvents $event)
     {
         $user = $event->user;
+        $addressee = $event->addressee;
         $items = $event->items;
-        $payment = $event->payment;
 
         Mail::to($user)
-            ->send(new OrderMail($user, $items, $payment));
+            ->send(new OrderMail($user, $addressee, $items));
     }
 }
