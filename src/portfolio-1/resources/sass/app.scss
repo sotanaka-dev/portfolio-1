@@ -958,17 +958,17 @@ input[type="number"] {
 /* カート */
 
 .cart {
+    &__list:nth-last-of-type(1) {
+        margin-bottom: 60px;
+        border-bottom: solid 1px $light_gray;
+    }
+
     &__item {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 24px 12px;
         border-top: 1px solid $light_gray;
-    }
-
-    &__item:nth-last-of-type(2) {
-        margin-bottom: 60px;
-        border-bottom: 1px solid $light_gray;
     }
 
     &__info-group {
@@ -1018,8 +1018,7 @@ input[type="number"] {
     }
 
     &__btn-wrap {
-        display: flex;
-        justify-content: flex-end;
+        text-align: right;
     }
 }
 
@@ -1138,6 +1137,11 @@ input[type="number"] {
 /* お届け先 */
 
 .addressees {
+    &__list:nth-last-of-type(1) {
+        margin-bottom: 60px;
+        border-bottom: solid 1px $light_gray;
+    }
+
     &__item {
         display: flex;
         justify-content: center;
@@ -1146,11 +1150,6 @@ input[type="number"] {
         padding: 24px 0;
         border-top: solid 1px $light_gray;
         text-align: center;
-    }
-
-    &__item:nth-last-of-type(1) {
-        margin-bottom: 60px;
-        border-bottom: solid 1px $light_gray;
     }
 
     &__icon-wrap {
@@ -1171,8 +1170,7 @@ input[type="number"] {
     }
 
     &__btn-wrap {
-        display: flex;
-        justify-content: center;
+        text-align: center;
     }
 }
 
@@ -1190,13 +1188,16 @@ input[type="number"] {
     }
 
     &__info-group-item {
-        display: flex;
-        flex-direction: column;
-        row-gap: 6px;
-
         & > h6 {
             padding-bottom: 6px;
+            margin-bottom: 6px;
             border-bottom: solid 1px $light_gray;
+        }
+
+        & > ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 6px;
         }
 
         &:not(&:last-child) {
@@ -1206,6 +1207,8 @@ input[type="number"] {
 
     &__link {
         display: inline-flex;
+        flex-direction: column;
+        row-gap: 12px;
         margin-top: 12px;
     }
 
@@ -1387,7 +1390,7 @@ input[type="number"] {
         }
 
         &__btn-wrap {
-            justify-content: center;
+            text-align: center;
         }
     }
 

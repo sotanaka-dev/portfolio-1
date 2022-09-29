@@ -3,8 +3,8 @@
         <ol class="breadcrumb__list container-lg">
             @foreach ($breadcrumbs as $breadcrumb)
                 @if (!is_null($breadcrumb->url) && !$loop->last)
-                    <li class="link-line link-line--white breadcrumb__item breadcrumb__item--passive">
-                        <a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a>
+                    <li class="breadcrumb__item breadcrumb__item--passive">
+                        <a class="link-line link-line--white" href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a>
                     </li>
 
                     <li class="breadcrumb__item">

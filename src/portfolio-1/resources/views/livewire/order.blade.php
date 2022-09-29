@@ -27,15 +27,19 @@
 
         <div class="order__info-group-item">
             <h6>配送先</h6>
-            <p>&#12306;{{ $select_addressee->postal_code }}</p>
-            <p>{{ $select_addressee->address }}</p>
-            <p>{{ $select_addressee->name }}</p>
+            <ul>
+                <li>&#12306;{{ $select_addressee->postal_code }}</li>
+                <li>{{ $select_addressee->address }}</li>
+                <li>{{ $select_addressee->name }}</li>
+            </ul>
         </div>
 
         <div class="order__info-group-item">
             <h6>連絡先</h6>
-            <p>{{ $select_addressee->tel }}</p>
-            <p>{{ Auth::user()->email }}</p>
+            <ul>
+                <li>{{ $select_addressee->tel }}</li>
+                <li>{{ Auth::user()->email }}</li>
+            </ul>
         </div>
 
         <div class="order__link order__info-group-item">
@@ -52,10 +56,13 @@
     <div class="order__info-group">
         <div class="order__info-group-item">
             <h6>注文商品</h6>
-            @foreach ($items as $item)
-                <p>{{ $item['name'] }}&nbsp;&yen;{{ number_format($item['price']) }}&nbsp;&times;{{ $item['qty'] }}
-                </p>
-            @endforeach
+            <ul>
+                @foreach ($items as $item)
+                    <li>
+                        {{ $item['name'] }}&nbsp;&yen;{{ number_format($item['price']) }}&nbsp;&times;{{ $item['qty'] }}
+                    </li>
+                @endforeach
+            </ul>
         </div>
 
         <div class="order__info-group-item">

@@ -1,12 +1,12 @@
 @section('title', 'Access')
 
 <div class="access container-lg">
-    <section class="external-link access__external-link">
+    <div class="external-link access__external-link">
         <a class=" link link-line" href="https://niihama.kawahara.ac.jp/">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             https://niihama.kawahara.ac.jp/
         </a>
-    </section>
+    </div>
 
     <div class="access-info access__info">
         <div class="access-info__row">

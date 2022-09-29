@@ -43,26 +43,26 @@
 
             <nav class="header__menu">
                 <ul class="header__menu-list">
-                    <a class="link link-line" href="{{ route('top') }}">
-                        <li>Top</li>
-                    </a>
+                    <li>
+                        <a class="link link-line" href="{{ route('top') }}">Top</a>
+                    </li>
 
-                    <a class="link link-line" href="{{ route('products') }}">
-                        <li>Products</li>
-                    </a>
+                    <li>
+                        <a class="link link-line" href="{{ route('products') }}">Products</a>
+                    </li>
 
-                    <a class="link link-line" href="{{ route('access') }}">
-                        <li>Access</li>
-                    </a>
+                    <li>
+                        <a class="link link-line" href="{{ route('access') }}">Access</a>
+                    </li>
 
                     @auth
-                        <a class="link link-line" href="{{ route('home') }}">
-                            <li>Home</li>
-                        </a>
+                        <li>
+                            <a class="link link-line" href="{{ route('home') }}">Home</a>
+                        </li>
                     @else
-                        <a class="link link-line" href="{{ route('login') }}">
-                            <li>Login</li>
-                        </a>
+                        <li>
+                            <a class="link link-line" href="{{ route('login') }}">Login</a>
+                        </li>
                     @endauth
                 </ul>
             </nav>

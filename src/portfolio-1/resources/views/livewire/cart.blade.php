@@ -2,14 +2,20 @@
 
 <div class="cart container-mid">
     @forelse ($items as $item)
+        @if ($loop->first)
+            <ul class="cart__list">
+        @endif
+
         @livewire('cart-item', ['item' => $item], key($item['id']))
 
         @if ($loop->last)
+            </ul>
+
             @livewire('total-amount-in-cart')
 
-            <span class="cart__btn-wrap">
+            <div class="cart__btn-wrap">
                 <a class="btn" href="{{ route('order') }}">注文画面へ進む</a>
-            </span>
+            </div>
         @endif
     @empty
         <div class="empty-item">

@@ -8,7 +8,7 @@
 
     <p class="products__select-category">{{ $select_category }}</p>
 
-    <section class="products__toolbar">
+    <div class="products__toolbar">
         <p class="products__search-result-qty" style="font-weight: bold;">
             {{ $products->links('livewire::search-result-qty') }}
         </p>
@@ -18,11 +18,11 @@
 
             <i x-on:click="search_open=true" class="fa-solid fa-magnifying-glass fa-2xl"></i>
         </div>
-    </section>
+    </div>
 
-    <section class="products-list products__list">
+    <ul class="products-list products__list">
         @include('components.product-list')
-    </section>
+    </ul>
 
     {{ $products->links('livewire::custom') }}
 </div>

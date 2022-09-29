@@ -1,5 +1,5 @@
 @foreach ($products as $product)
-    <div class="products-list__item link link-line">
+    <li class="products-list__item link link-line">
         <span class="products-list__fav-wrap">
             @livewire('fav-icon', ['product' => $product], key($product->id))
         </span>
@@ -16,5 +16,5 @@
                 <span>&yen;{{ number_format($product->price) }}</span>
             </p>
         </a>
-    </div>
+    </li>
 @endforeach

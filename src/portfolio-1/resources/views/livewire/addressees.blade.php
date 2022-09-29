@@ -1,10 +1,18 @@
 @section('title', 'Addressees')
 
-<ul class="addressees container-sm">
+<div class="addressees container-sm">
     @include('components.flash-message')
 
     @forelse ($addressees as $addressee)
+        @if ($loop->first)
+            <ul class="addressees__list">
+        @endif
+
         @livewire('addressee', ['addressee' => $addressee], key($addressee->id))
+
+        @if ($loop->last)
+            </ul>
+        @endif
     @empty
         <div class="empty-item">
             <p class="empty-item__message">
@@ -16,4 +24,4 @@
     <div class="addressees__btn-wrap">
         <a class="btn" href="{{ route('settings.addressees.add') }}">お届け先を追加する</a>
     </div>
-</ul>
+</div>

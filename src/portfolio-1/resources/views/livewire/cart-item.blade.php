@@ -1,4 +1,4 @@
-<div class="cart__item">
+<li class="cart__item">
     <a class="cart__item-image" href='{{ route('products.detail', ['id' => $item['id']]) }}'>
         <img class="image" src="{{ asset(current(glob($item['path'] . '*.*'))) }}">
     </a>
@@ -20,4 +20,4 @@
             </div>
         </div>
     </div>
-</div>
+</li>

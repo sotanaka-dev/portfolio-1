@@ -26,9 +26,11 @@
                             注文番号:&nbsp;{{ $key }}
                         </p>
                     </div>
+
+                    <ul>
                 @endif
 
-                <div class="order-history__item">
+                <li class="order-history__item">
                     <div class="order-history__image-wrap">
                         <a href='{{ route('products.detail', ['id' => $product->id]) }}'>
                             <img class="order-history__image" src="{{ asset(current(glob($product->path . '*.*'))) }}">
@@ -39,9 +41,11 @@
                         <p>&yen;{{ number_format($product->price) }}</p>
                         <p>数量:&nbsp;{{ $product->quantity }}点</p>
                     </div>
-                </div>
+                </li>
 
                 @if ($loop->last)
+                    </ul>
+
                     <div class="order-history__heading order-history__heading--bottom">
                         <p>
                             合計金額:&nbsp;&yen;{{ number_format($group->sum('price')) }}
