@@ -82,6 +82,10 @@ body {
     transition: transform 0.8s;
 }
 
+.link-line--white::after {
+    background: $white;
+}
+
 .link-line:hover::after {
     transform-origin: left top;
     transform: scale(1, 1);
@@ -251,7 +255,7 @@ body {
     overflow: auto;
     white-space: nowrap;
     padding-top: $header_height;
-    background-color: $dark_gray;
+    background-color: $gray;
 
     &__list {
         position: relative;
@@ -263,7 +267,7 @@ body {
     }
 
     &__item {
-        color: $light_gray;
+        color: $white;
 
         &:last-child::after {
             content: "";
@@ -273,15 +277,10 @@ body {
         }
 
         &--passive {
-            transition: 0.5s;
-
-            &:hover {
-                color: $white;
-            }
         }
+
         &--active {
             font-weight: bold;
-            color: $white;
         }
     }
 }
