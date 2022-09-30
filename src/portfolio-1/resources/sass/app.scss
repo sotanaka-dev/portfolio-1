@@ -173,6 +173,10 @@ body {
     &__head {
         padding-left: 24px;
         margin-bottom: 24px;
+
+        & > i {
+            cursor: pointer;
+        }
     }
 }
 
@@ -705,6 +709,10 @@ input[type="number"] {
         display: flex;
         align-items: center;
         gap: 16px;
+
+        & > i {
+            cursor: pointer;
+        }
     }
 
     &__list {
@@ -1224,6 +1232,10 @@ input[type="number"] {
         &__hamburger-menu {
             display: block;
             flex: 1;
+
+            & > i {
+                cursor: pointer;
+            }
         }
 
         &__menu {
