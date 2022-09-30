@@ -51,7 +51,7 @@ Route::get('password/reset/{token}', App\Http\Livewire\Auth\ResetForgotPassword:
 
 Route::get('settings/password/reset', App\Http\Livewire\Auth\ResetPassword::class)
     ->name('settings.password.reset')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 /* メール認証 */
 
@@ -77,8 +77,6 @@ Route::get('settings/email/reset', App\Http\Livewire\Auth\ResetEmail::class)
     ->middleware('auth')
     ->name('settings.email.reset');
 
-
-
 /* トップ */
 
 Route::get('/', App\Http\Livewire\Top::class)
@@ -103,28 +101,28 @@ Route::get('access', App\Http\Livewire\Access::class)
 
 Route::get('home', App\Http\Livewire\Home::class)
     ->name('home')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 /* お届け先 */
 
 Route::get('settings/addressees', App\Http\Livewire\Addressees::class)
     ->name('settings.addressees')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 Route::get('settings/addressees/add', App\Http\Livewire\AddAddressee::class)
     ->name('settings.addressees.add')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 Route::get('settings/addressees/edit', App\Http\Livewire\EditAddressee::class)
     ->name('settings.addressees.edit')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 
 /* 問い合わせ */
 
 Route::get('contact', App\Http\Livewire\Contact::class)
     ->name('contact')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 /* お気に入り */
 
@@ -140,10 +138,10 @@ Route::get('cart', App\Http\Livewire\Cart::class)
 
 Route::get('order', App\Http\Livewire\Order::class)
     ->name('order')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
 
 /* 注文履歴 */
 
 Route::get('order/history', App\Http\Livewire\OrderHistory::class)
     ->name('order.history')
-    ->middleware('verified');
+    ->middleware(['auth', 'verified']);
