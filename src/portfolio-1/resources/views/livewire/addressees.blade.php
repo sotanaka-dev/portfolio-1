@@ -1,6 +1,6 @@
 @section('title', 'Addressees')
 
-<div class="addressees container-sm">
+<div x-data="{ add_open: false }" @added-addressee="add_open=false" class="addressees container-sm">
     @include('components.flash-message')
 
     @forelse ($addressees as $addressee)
@@ -22,6 +22,8 @@
     @endforelse
 
     <div class="addressees__btn-wrap">
-        <a class="btn" href="{{ route('settings.addressees.add') }}">お届け先を追加する</a>
+        <button x-on:click="add_open=!add_open" class="btn" type="button">お届け先を追加する</button>
     </div>
+
+    @include('livewire.add-addressee')
 </div>

@@ -1,8 +1,5 @@
-@section('title', 'EditAddressee')
-
-<div class="form container-sm h-adr">
-    @include('components.flash-message')
-
+<div style="margin-top: 24px;" x-show="edit_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak
+    class="form container-sm h-adr">
     <div class="form-group">
         <label class="form-group__label" for="name">
             お名前
@@ -51,5 +48,5 @@
         <input wire:model.lazy="tel" id="tel" class="form-input" type="tel" autocomplete="tel-national" />
     </div>
 
-    <button wire:click="editAddressee" class="btn">お届け先を再設定</button>
+    <button wire:click="editAddressee" class="btn">お届け先を更新</button>
 </div>

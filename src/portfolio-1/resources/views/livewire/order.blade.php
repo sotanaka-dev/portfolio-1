@@ -43,12 +43,8 @@
         </div>
 
         <div class="order__link order__info-group-item">
-            <a class="link link-line" href="{{ route('settings.addressees.edit', ['id' => $select_addressee->id]) }}">
-                <i class="fa-solid fa-pen-to-square"></i>&nbsp;このお届け先を編集する
-            </a>
-
-            <a class="link link-line" href="{{ route('settings.addressees.add') }}">
-                <i class="fa-solid fa-pen-to-square"></i>&nbsp;新しいお届け先を追加する
+            <a class="link link-line" href="{{ route('settings.addressees') }}">
+                <i class="fa-solid fa-pen-to-square"></i>&nbsp;お届け先を追加・編集する
             </a>
         </div>
     </div>

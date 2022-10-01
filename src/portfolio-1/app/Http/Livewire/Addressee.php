@@ -7,6 +7,8 @@ use App\Models\Addressee as AddresseeModel;
 
 class Addressee extends Component
 {
+    use Trait\EditAddressee;
+
     public $addressee;
 
     public function render()
@@ -16,16 +18,12 @@ class Addressee extends Component
 
     private function removeAddressee()
     {
-        AddresseeModel::find($this->addressee->id)->delete();
-
-        $this->emitUp('refresh');
         $this->dispatchBrowserEvent('addressee-removed');
 
-        /*
-        NOTE:
-        親コンポーネントがrefreshされると同時にフラッシュメッセージも一瞬で消えるため、改善するまでコメントアウト
-        */
-        // session()->flash('status', __('messages.complete.remove_addressee'));
+        AddresseeModel::find($this->addressee->id)->delete();
+
+        $this->emitTo('addressees', 'refresh');
+        $this->dispatchBrowserEvent('flash', ['message' => __('messages.complete.remove_addressee')]);
     }
 
     public function pressedExecBtn()

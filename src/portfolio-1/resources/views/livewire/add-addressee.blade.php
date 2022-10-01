@@ -1,6 +1,5 @@
-@section('title', 'AddAddressee')
-
-<div class="form container-sm h-adr">
+<div style="margin-top: 24px;" x-show="add_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak
+    class="form container-sm h-adr">
     <div class="form-group">
         <label class="form-group__label" for="name">
             お名前

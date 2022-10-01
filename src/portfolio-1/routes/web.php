@@ -109,14 +109,6 @@ Route::get('settings/addressees', App\Http\Livewire\Addressees::class)
     ->name('settings.addressees')
     ->middleware(['auth', 'verified']);
 
-Route::get('settings/addressees/add', App\Http\Livewire\AddAddressee::class)
-    ->name('settings.addressees.add')
-    ->middleware(['auth', 'verified']);
-
-Route::get('settings/addressees/edit', App\Http\Livewire\EditAddressee::class)
-    ->name('settings.addressees.edit')
-    ->middleware(['auth', 'verified']);
-
 
 /* 問い合わせ */
 

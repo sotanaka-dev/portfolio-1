@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Trait;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Rules\PostalCodeRule;
 use App\Rules\TelRule;
 use App\Models\Addressee;
 
-class AddAddressee extends Component
+trait AddAddressee
 {
     public $name;
     public $postal_code;
@@ -40,18 +39,13 @@ class AddAddressee extends Component
         $this->tel = \Util::addHyphenToTel($this->tel);
     }
 
-    public function render()
-    {
-        return view('livewire.add-addressee')
-            ->extends('layouts.template')
-            ->section('content');
-    }
-
     public function addAddressee()
     {
-        $this->dispatchBrowserEvent('before-validation');
 
         $validated_data = $this->validate();
+
+        $this->dispatchBrowserEvent('added-addressee');
+        $this->dispatchBrowserEvent('before-validation');
 
         Addressee::create([
             'user_id'     => Auth::id(),
@@ -61,7 +55,8 @@ class AddAddressee extends Component
             'tel'         => $validated_data['tel'],
         ]);
 
-        session()->flash('status', __('messages.complete.add_addressee'));
-        return redirect()->route('settings.addressees');
+        $this->reset(['name', 'postal_code', 'address', 'tel']);
+        $this->emitTo('addressees', 'refresh');
+        $this->dispatchBrowserEvent('flash', ['message' => __('messages.complete.add_addressee')]);
     }
 }

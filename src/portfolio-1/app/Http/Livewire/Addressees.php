@@ -8,19 +8,18 @@ use App\Models\Addressee;
 
 class Addressees extends Component
 {
+    use Trait\AddAddressee;
+
     public $addressees;
 
     protected $listeners = [
         'refresh' => '$refresh',
     ];
 
-    public function mount()
-    {
-        $this->addressees = $this->getAddressees();
-    }
-
     public function render()
     {
+        $this->addressees = $this->getAddressees();
+
         return view('livewire.addressees')
             ->extends('layouts.template')
             ->section('content');

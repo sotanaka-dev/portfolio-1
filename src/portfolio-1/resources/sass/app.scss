@@ -1145,18 +1145,23 @@ input[type="number"] {
 /* お届け先 */
 
 .addressees {
-    &__list:nth-last-of-type(1) {
+    &__list {
         margin-bottom: 60px;
-        border-bottom: solid 1px $light_gray;
     }
 
     &__item {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        row-gap: 12px;
         padding: 24px 0;
         border-top: solid 1px $light_gray;
+
+        &:last-child {
+            border-bottom: solid 1px $light_gray;
+        }
+    }
+
+    &__info-group {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
         text-align: center;
     }
 
@@ -1214,10 +1219,7 @@ input[type="number"] {
     }
 
     &__link {
-        display: inline-flex;
-        flex-direction: column;
-        row-gap: 12px;
-        margin-top: 12px;
+        margin-top: 36px;
     }
 
     &__btn-wrap {
