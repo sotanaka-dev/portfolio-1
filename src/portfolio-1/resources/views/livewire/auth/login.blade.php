@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group">
-        <input wire:model="remember" id="remember" class="remember" type="checkbox">
+        <input wire:model="remember" id="remember" class="form-group__checkbox" type="checkbox">
 
         <label for="remember">ログイン状態を記憶する</label>
     </div>

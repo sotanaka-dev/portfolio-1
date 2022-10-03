@@ -15,5 +15,10 @@ class Addressee extends Model
         'postal_code',
         'address',
         'tel',
+        'is_default',
+    ];
+
+    protected $casts = [
+        'is_default' => 'boolean',
     ];
 }

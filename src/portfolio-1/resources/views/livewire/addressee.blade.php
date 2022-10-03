@@ -1,9 +1,15 @@
-<li x-data="{ open: false, edit_open: false }" @edited-addressee="edit_open=false" class="addressees__item">
+<li x-data="{ open: false, edit_open: @entangle('edit_open') }" class="addressees__item">
     @include('components.modal-dialog', [
         'message' => __('お届け先を削除します。よろしいですか？'),
     ])
 
-    <div class="addressees__info-group">
+    <div style="position: relative;" class="addressees__info-group">
+        @if ($addressee->is_default)
+            <i style="position: absolute; top: -6px; left: 10px;"
+                class="speech-balloon-trigger fa-solid fa-thumbtack fa-lg"></i>
+
+            <span style="top: -55px; left: -4px;" class="speech-balloon speech-balloon--right">デフォルトのお届け先</span>
+        @endif
         <p>{{ $addressee->name }}</p>
         <p>&#12306;{{ $addressee->postal_code }}</p>
         <p>{{ $addressee->address }}</p>
@@ -11,7 +17,15 @@
 
         <div class="addressees__icon-wrap">
             <div class="addressees__edit">
-                <button x-on:click="edit_open=!edit_open" class="speech-balloon-trigger" type="button">
+                <button
+                    x-on:click="
+                        edit_open=!edit_open
+                        $nextTick(() => {
+                            if (edit_open) {
+                                document.getElementById('name_{{ $addressee->id }}').focus()
+                            }
+                        })"
+                    class="speech-balloon-trigger" type="button">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
                 <span class="addressees__speech-balloon speech-balloon speech-balloon--right">お届け先を編集</span>
@@ -26,5 +40,65 @@
         </div>
     </div>
 
-    @include('livewire.edit-addressee')
+    <div x-show="edit_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak
+        class="addressees__form form h-adr">
+        <div class="form-group">
+            <label class="form-group__label" for="name_{{ $addressee->id }}">
+                お名前
+                @error('name')
+                    <strong class="form-group__error-message">{{ $message }}</strong>
+                @enderror
+            </label>
+
+            <input wire:model.lazy="name" type="text" id="name_{{ $addressee->id }}" class="form-input" autofocus
+                autocomplete="name" />
+        </div>
+
+        <span class="p-country-name" style="display:none;">Japan</span>
+
+        <div class="form-group">
+            <label class="form-group__label" for="postal_code_{{ $addressee->id }}">
+                郵便番号
+                @error('postal_code')
+                    <strong class="form-group__error-message">{{ $message }}</strong>
+                @enderror
+            </label>
+
+            <input wire:model.lazy="postal_code" id="postal_code_{{ $addressee->id }}" class="form-input p-postal-code"
+                type="text" autocomplete="postal-code" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-group__label" for="address_{{ $addressee->id }}">
+                住所
+                @error('address')
+                    <strong class="form-group__error-message">{{ $message }}</strong>
+                @enderror
+            </label>
+
+            <input wire:model.lazy="address" id="address_{{ $addressee->id }}"
+                class="form-input p-region p-locality p-street-address p-extended-address" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-group__label" for="tel_{{ $addressee->id }}">
+                電話番号
+                @error('tel')
+                    <strong class="form-group__error-message">{{ $message }}</strong>
+                @enderror
+            </label>
+
+            <input wire:model.lazy="tel" id="tel_{{ $addressee->id }}" class="form-input" type="tel"
+                autocomplete="tel-national" />
+        </div>
+
+        <div class="form-group">
+            <input wire:model="is_default" id="is_default_{{ $addressee->id }}" class="form-group__checkbox"
+                type="checkbox">
+
+            <label for="is_default_{{ $addressee->id }}">デフォルトのお届け先に設定する</label>
+        </div>
+
+        <button wire:click="editAddressee" class="btn">お届け先を更新</button>
+    </div>
 </li>

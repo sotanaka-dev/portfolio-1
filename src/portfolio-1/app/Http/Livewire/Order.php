@@ -47,7 +47,12 @@ class Order extends Component
 
     private function getAddressees()
     {
-        return Addressee::where('user_id', '=', Auth::id())->get();
+        return
+            Addressee
+            ::where('user_id', '=', Auth::id())
+            ->orderBy('is_default', 'desc')
+            ->orderBy('created_at', 'asc')
+            ->get();
     }
 
     private function getAddressee()

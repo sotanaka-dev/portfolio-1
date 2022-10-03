@@ -379,6 +379,18 @@ body {
             margin: 5px 0 20px;
         }
     }
+
+    &__checkbox {
+        & + label {
+            color: $gray;
+        }
+
+        &:checked {
+            & + label {
+                color: $dark_gray;
+            }
+        }
+    }
 }
 
 .form-input {
@@ -400,18 +412,6 @@ body {
 
     &:focus {
         outline: solid 2px $dark_gray;
-    }
-}
-
-.remember {
-    & + label {
-        color: $gray;
-    }
-
-    &:checked {
-        & + label {
-            color: $dark_gray;
-        }
     }
 }
 
@@ -1156,6 +1156,10 @@ input[type="number"] {
         &:last-child {
             border-bottom: solid 1px $light_gray;
         }
+    }
+
+    &__form {
+        margin-top: 24px;
     }
 
     &__info-group {
