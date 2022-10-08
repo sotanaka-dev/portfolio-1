@@ -1,6 +1,6 @@
 @section('title', 'Home')
 
-<div x-data="{ open: false }" class="home container-mid">
+<div x-data="{ modal_open: false }" class="home container-mid">
     @include('components.flash-message')
     @include('components.modal-dialog', [
         'message' => __('messages.confirm.withdrawal'),
@@ -65,7 +65,7 @@
         </li>
 
         <li class="home__item">
-            <a x-on:click="open=true" class="home__link link">
+            <a x-on:click="modal_open=true" class="home__link link">
                 <i class="fa-solid fa-user-slash"></i>&nbsp;退会
             </a>
         </li>

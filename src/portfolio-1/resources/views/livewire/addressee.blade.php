@@ -1,4 +1,4 @@
-<li x-data="{ open: false, edit_open: @entangle('edit_open') }" class="addressees__item">
+<li x-data="{ modal_open: false, edit_open: @entangle('edit_open') }" class="addressees__item">
     @include('components.modal-dialog', [
         'message' => __('お届け先を削除します。よろしいですか？'),
     ])
@@ -32,7 +32,7 @@
             </div>
 
             <div class="addressees__remove">
-                <button x-on:click="open=true" class="speech-balloon-trigger" type="button">
+                <button x-on:click="modal_open=true" class="speech-balloon-trigger" type="button">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
                 <span class="addressees__speech-balloon speech-balloon speech-balloon--right">お届け先を削除</span>

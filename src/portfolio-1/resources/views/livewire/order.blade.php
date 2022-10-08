@@ -1,6 +1,6 @@
 @section('title', 'Order')
 
-<div x-data="{ open: false }" class="order container-sm">
+<div x-data="{ modal_open: false }" class="order container-sm">
     @include('components.loading-message', [
         'target' => 'pressedExecBtn',
         'message' => __('messages.loading.order'),
@@ -68,6 +68,6 @@
     </div>
 
     <div class="order__btn-wrap">
-        <button x-on:click="open=true" class="btn">注文を確定する</button>
+        <button x-on:click="modal_open=true" class="btn">注文を確定する</button>
     </div>
 </div>
