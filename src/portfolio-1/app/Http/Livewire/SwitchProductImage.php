@@ -32,27 +32,4 @@ class SwitchProductImage extends Component
     {
         $this->main_image_path = $this->image_paths[$this->tmb_index];
     }
-
-    public function setTmbIndex($index)
-    {
-        $this->tmb_index = $index;
-    }
-
-    public function decrementTmbIndex()
-    {
-        if ($this->tmb_index === self::START_VALUE_OF_INDEX) {
-            $this->tmb_index = $this->max_length;
-            return;
-        }
-        $this->tmb_index--;
-    }
-
-    public function incrementTmbIndex()
-    {
-        if ($this->tmb_index === $this->max_length) {
-            $this->tmb_index = self::START_VALUE_OF_INDEX;
-            return;
-        }
-        $this->tmb_index++;
-    }
 }
