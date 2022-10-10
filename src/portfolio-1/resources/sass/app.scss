@@ -583,20 +583,14 @@ input[type="number"] {
 /* お気に入り */
 
 .fav-icon {
-    position: relative;
     cursor: pointer;
 
     &__add {
-        color: $gray;
+        color: $light;
     }
 
     &__rm {
         color: $pink;
-    }
-
-    &__speech-balloon {
-        left: -4px;
-        bottom: 36px;
     }
 }
 
@@ -612,9 +606,13 @@ input[type="number"] {
     }
 
     &__item {
-        position: relative;
+        display: grid;
         width: calc(100% / 5 - 12px);
         border-bottom: solid 1px $light_gray;
+
+        & > * {
+            grid-area: 1/-1;
+        }
     }
 
     &__name {
@@ -623,30 +621,23 @@ input[type="number"] {
     }
 
     &__rm {
-        position: absolute;
-        top: 6px;
-        left: 6px;
+        align-self: start;
+        justify-self: start;
+        margin: 12px 0 0 12px;
         font-size: 1.2rem;
-        color: $dark_gray;
-    }
-
-    &__speech-balloon {
-        left: -1px;
-        top: -32px;
-    }
-
-    &__loading {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        color: $white;
+        color: $light;
     }
 }
 
 /* 吹き出し */
+
+.speech-balloon-trigger {
+    position: relative;
+}
+
+.speech-balloon-trigger:hover > .speech-balloon {
+    display: block;
+}
 
 .speech-balloon {
     position: absolute;
@@ -668,19 +659,25 @@ input[type="number"] {
         background-color: $dark_gray;
     }
 
-    &--right:after {
-        left: 15px;
-        bottom: -7px;
+    &--right {
+        left: -12px;
+        bottom: 24px;
+
+        &:after {
+            left: 15px;
+            bottom: -7px;
+        }
     }
 
-    &--left:after {
-        right: 15px;
-        bottom: -7px;
-    }
-}
+    &--left {
+        right: -12px;
+        bottom: 24px;
 
-.speech-balloon-trigger:hover + .speech-balloon {
-    display: block;
+        &:after {
+            right: 15px;
+            bottom: -7px;
+        }
+    }
 }
 
 /* 商品 */
@@ -731,23 +728,26 @@ input[type="number"] {
     column-gap: 20px;
 
     &__item {
-        position: relative;
+        display: grid;
         width: calc(25% - 15px);
         border-bottom: solid 1px $light_gray;
+
+        & > * {
+            grid-area: 1/-1;
+        }
     }
 
     &__fav-wrap {
-        position: absolute;
-        z-index: 1;
-        top: 12px;
-        left: 12px;
+        align-self: start;
+        justify-self: start;
+        margin: 12px 0 0 12px;
     }
 
     &__stock-status {
-        position: absolute;
-        top: 6px;
-        right: 6px;
         z-index: 1;
+        align-self: start;
+        justify-self: end;
+        margin: 6px 6px 0 0;
 
         display: flex;
         align-items: center;
@@ -837,36 +837,35 @@ input[type="number"] {
     }
 
     &__main-image-wrap {
-        position: relative;
+        display: grid;
         width: 90%;
-        margin: 0 auto;
-    }
+        margin: 0 auto 16px auto;
 
-    &__main-image {
-        margin-bottom: 16px;
+        & > * {
+            grid-area: 1/-1;
+        }
     }
 
     &__fav-wrap {
-        position: absolute;
-        top: 12px;
-        right: 12px;
+        align-self: start;
+        justify-self: end;
+        margin: 12px 12px 0 0;
     }
 
     &__image-replacement {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        color: $gray;
+        display: grid;
+        align-self: center;
+        color: $light;
         cursor: pointer;
 
         &--prev {
-            left: 12px;
+            justify-self: start;
+            margin-left: 12px;
         }
 
         &--next {
-            right: 12px;
+            justify-self: end;
+            margin-right: 12px;
         }
     }
 
@@ -1002,15 +1001,6 @@ input[type="number"] {
         gap: 24px 48px;
     }
 
-    &__remove-wrap {
-        position: relative;
-    }
-
-    &__speech-balloon {
-        right: -12px;
-        bottom: 32px;
-    }
-
     &__total-amount-wrap {
         margin-bottom: 36px;
         text-align: right;
@@ -1077,6 +1067,20 @@ input[type="number"] {
 
         &:hover {
             border: solid 1px $dark_gray;
+        }
+
+        &--with-message {
+            display: grid;
+
+            & > * {
+                grid-area: 1/-1;
+            }
+
+            & > .home__message {
+                align-self: start;
+                justify-self: start;
+                margin: 6px 0 0 6px;
+            }
         }
     }
 
@@ -1174,16 +1178,6 @@ input[type="number"] {
         justify-content: center;
         align-items: center;
         column-gap: 24px;
-    }
-
-    &__edit,
-    &__remove {
-        position: relative;
-    }
-
-    &__speech-balloon {
-        left: -12px;
-        bottom: 24px;
     }
 
     &__btn-wrap {

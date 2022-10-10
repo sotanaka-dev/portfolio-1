@@ -3,12 +3,9 @@
         'message' => __('お届け先を削除します。よろしいですか？'),
     ])
 
-    <div style="position: relative;" class="addressees__info-group">
+    <div class="addressees__info-group">
         @if ($addressee->is_default)
-            <i style="position: absolute; top: -6px; left: 10px;"
-                class="speech-balloon-trigger fa-solid fa-thumbtack fa-lg"></i>
-
-            <span style="top: -55px; left: -4px;" class="speech-balloon speech-balloon--right">デフォルトのお届け先</span>
+            <p><i class="fa-solid fa-thumbtack"></i>&nbsp;デフォルトのお届け先</p>
         @endif
         <p>{{ $addressee->name }}</p>
         <p>&#12306;{{ $addressee->postal_code }}</p>
@@ -16,26 +13,23 @@
         <p>{{ $addressee->tel }}</p>
 
         <div class="addressees__icon-wrap">
-            <div class="addressees__edit">
-                <button
-                    x-on:click="
-                        edit_open=!edit_open
-                        $nextTick(() => {
-                            if (edit_open) {
-                                document.getElementById('name_{{ $addressee->id }}').focus()
-                            }
-                        })"
-                    class="speech-balloon-trigger" type="button">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <span class="addressees__speech-balloon speech-balloon speech-balloon--right">お届け先を編集</span>
+            <div x-on:click="
+                    edit_open=!edit_open
+                    $nextTick(() => {
+                        if (edit_open) {
+                            document.getElementById('name_{{ $addressee->id }}').focus()
+                        }
+                    })"
+                class="speech-balloon-trigger">
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                <span class="speech-balloon speech-balloon--right">お届け先を編集</span>
             </div>
 
-            <div class="addressees__remove">
-                <button x-on:click="modal_open=true" class="speech-balloon-trigger" type="button">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-                <span class="addressees__speech-balloon speech-balloon speech-balloon--right">お届け先を削除</span>
+            <div x-on:click="modal_open=true" class="speech-balloon-trigger">
+                <i class="fa-solid fa-trash-can"></i>
+
+                <span class="speech-balloon speech-balloon--right">お届け先を削除</span>
             </div>
         </div>
     </div>

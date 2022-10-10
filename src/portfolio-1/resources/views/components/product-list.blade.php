@@ -1,11 +1,11 @@
 @foreach ($products as $product)
     <li class="products-list__item link link-line">
-        <span class="products-list__fav-wrap">
+        <div class="products-list__fav-wrap">
             @livewire('fav-icon', ['product' => $product], key($product->id))
-        </span>
+        </div>
 
         @if ($product->stock <= 0)
-            <span class="products-list__stock-status">SOLD<br>OUT</span>
+            <div class="products-list__stock-status">SOLD<br>OUT</div>
         @endif
 
         <a href='{{ route('products.detail', ['id' => $product->id]) }}'>

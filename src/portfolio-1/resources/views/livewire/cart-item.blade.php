@@ -11,12 +11,10 @@
 
             @include('components.spin-btn')
 
-            <div class="cart__remove-wrap">
-                <button wire:click="removeItem" class="speech-balloon-trigger">
-                    <i class="fa-solid fa-trash-can fa-lg"></i>
-                </button>
+            <div wire:click="removeItem" class="speech-balloon-trigger">
+                <i class="fa-solid fa-trash-can fa-lg"></i>
 
-                <span class="cart__speech-balloon speech-balloon speech-balloon--left">カートから削除</span>
+                <span class="speech-balloon speech-balloon--left">カートから削除</span>
             </div>
         </div>
     </div>

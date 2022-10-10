@@ -1,15 +1,14 @@
 <li x-data="{ id: {{ $fav_item['id'] }} }" class="fav-list__item link link-line">
-    <span
-        x-on:click="
+    <div x-on:click="
             delete fav_items[id]
             localStorage.setItem('fav_items', JSON.stringify(fav_items))
             $wire.emitTo('qty-in-fav-list', 'decrement')"
-        class="fav-list__rm fa-stack speech-balloon-trigger">
-        <i class="fa-solid fa-circle fa-stack-2x fa-inverse"></i>
-        <i class="fa-solid fa-xmark fa-lg fa-stack-1x"></i>
-    </span>
+        class="fav-list__rm speech-balloon-trigger">
+        <i class="fa-solid fa-xmark fa-2xl"></i>
 
-    <span class="fav-list__speech-balloon speech-balloon speech-balloon--right">お気に入りから削除</span>
+        <span class="speech-balloon speech-balloon--right">お気に入りから削除</span>
+    </div>
+
 
     <a href="{{ route('products.detail', ['id' => $fav_item['id']]) }}">
         <img class="image" src="{{ asset(current(glob($fav_item['path'] . '*.*'))) }}">

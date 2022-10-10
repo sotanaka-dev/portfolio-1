@@ -31,19 +31,18 @@
             </a>
         </li>
 
-        {{-- HACK: 吹き出しのリファクタリングまでとりあえずインラインスタイルのまま --}}
-        <li style="position: relative;" class="home__item">
+        <li class="home__item home__item--with-message">
             <a class="home__link link" href="{{ route('settings.addressees') }}">
                 <i class="fa-solid fa-house"></i>&nbsp;お届け先設定
             </a>
 
-            <span style="position: absolute; top: 6px; left: 6px;" x-data x-cloak x-show="$wire.addressee_not_exist"
-                class="speech-balloon-trigger">
+            <div x-data x-cloak x-show="$wire.addressee_not_exist" class="home__message speech-balloon-trigger">
                 <i class="fa-solid fa-circle-exclamation fa-lg"></i>
-            </span>
-            <span style="top: -34px; left: -5px;" class="speech-balloon speech-balloon--right">
-                お届け先が登録されていません。
-            </span>
+
+                <span class="speech-balloon speech-balloon--right">
+                    お届け先が登録されていません。
+                </span>
+            </div>
         </li>
 
         <li class="home__item">
