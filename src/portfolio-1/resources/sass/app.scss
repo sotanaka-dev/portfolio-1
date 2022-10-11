@@ -1,5 +1,3 @@
-/* ---------- 変数 ---------- */
-
 $white: #fff;
 $light: #f5f5f5;
 $light_gray: #ccc;
@@ -10,11 +8,19 @@ $danger: #dc3545;
 $success: #459647;
 $success_bg: #ecfff5;
 $pink: #e81e63;
-
 $radius_value_circle: 9999px;
 $header_height: 100px;
 
-/* ---------- 共通部分 ---------- */
+$breakpoints: (
+    "md": "(max-width: 56.25em)" /* 900px */,
+    "sm": "(max-width: 37.5em)" /* 600px */,
+) !default;
+
+@mixin mediaQuery($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
 
 [x-cloak] {
     display: none !important;
@@ -158,6 +164,25 @@ body {
         white-space: nowrap;
         color: $white;
     }
+
+    @include mediaQuery(md) {
+        &__hamburger-menu {
+            display: block;
+            flex: 1;
+
+            & > i {
+                cursor: pointer;
+            }
+        }
+
+        &__menu {
+            display: none;
+        }
+
+        &__logo {
+            text-align: center;
+        }
+    }
 }
 
 /* サイドバー */
@@ -280,9 +305,6 @@ body {
             width: 24px;
         }
 
-        &--passive {
-        }
-
         &--active {
             font-weight: bold;
         }
@@ -337,6 +359,11 @@ body {
 .form {
     padding: 72px;
     border: solid 1px $light_gray;
+
+    @include mediaQuery(sm) {
+        padding: 0;
+        border: none;
+    }
 }
 
 .form-link {
@@ -617,7 +644,7 @@ input[type="number"] {
 
     &__name {
         padding: 6px;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     &__rm {
@@ -626,6 +653,26 @@ input[type="number"] {
         margin: 12px 0 0 12px;
         font-size: 1.2rem;
         color: $light;
+    }
+
+    @include mediaQuery(md) {
+        &__items {
+            column-gap: 12px;
+        }
+
+        &__item {
+            width: calc(100% / 4 - 9px);
+        }
+    }
+
+    @include mediaQuery(sm) {
+        &__items {
+            column-gap: 9px;
+        }
+
+        &__item {
+            width: calc(100% / 3 - 6px);
+        }
     }
 }
 
@@ -769,6 +816,22 @@ input[type="number"] {
         padding: 8px;
         text-align: left;
         font-size: 1.6rem;
+    }
+
+    @include mediaQuery(md) {
+        column-gap: 18px;
+
+        &__item {
+            width: calc(100% / 3 - 12px);
+        }
+    }
+
+    @include mediaQuery(sm) {
+        column-gap: 16px;
+
+        &__item {
+            width: calc(50% - 8px);
+        }
     }
 }
 
@@ -914,6 +977,22 @@ input[type="number"] {
         display: flex;
         margin-bottom: 12px;
     }
+
+    @include mediaQuery(sm) {
+        flex-wrap: wrap;
+        row-gap: 24px;
+
+        &__images,
+        &__info-group {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        &__info-group {
+            padding: 0;
+        }
+    }
 }
 
 /* アクセス */
@@ -947,6 +1026,26 @@ input[type="number"] {
 
     .access-map {
         width: 100%;
+    }
+
+    @include mediaQuery(sm) {
+        &__external-link {
+            margin-bottom: 16px;
+        }
+
+        .access-info {
+            &__cell {
+                display: block;
+                padding: 0;
+                line-height: 2.2rem;
+            }
+
+            &__heading {
+                display: inline-block;
+                margin: 8px 0 3px;
+                border-bottom: 1px solid $light_gray;
+            }
+        }
     }
 }
 
@@ -1018,6 +1117,48 @@ input[type="number"] {
     &__btn-wrap {
         text-align: right;
     }
+
+    @include mediaQuery(sm) {
+        &__item {
+            column-gap: 8vw;
+        }
+
+        &__item-image {
+            min-width: 120px;
+        }
+
+        &__item-name,
+        &__item-price {
+            max-width: 100%;
+        }
+
+        &__form {
+            flex-direction: column-reverse;
+            align-items: start;
+        }
+
+        &__info-group {
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 24px;
+        }
+
+        &__total-amount-wrap {
+            text-align: center;
+        }
+
+        &__total-amount {
+            font-size: 1.6rem;
+        }
+
+        &__total-amount-note {
+            font-size: 1.2rem;
+        }
+
+        &__btn-wrap {
+            text-align: center;
+        }
+    }
 }
 
 /* メアド確認 */
@@ -1086,7 +1227,27 @@ input[type="number"] {
 
     &__link {
         display: block;
-        padding: 36px;
+        padding: 32px;
+    }
+
+    @include mediaQuery(md) {
+        &__item {
+            width: calc(50% - 3px);
+        }
+
+        &__link {
+            padding: 24px;
+        }
+    }
+
+    @include mediaQuery(sm) {
+        &__item {
+            width: 100%;
+        }
+
+        &__link {
+            padding: 16px;
+        }
     }
 }
 
@@ -1143,6 +1304,26 @@ input[type="number"] {
 
     &__image {
         width: 75px;
+    }
+
+    @include mediaQuery(sm) {
+        &__heading {
+            flex-direction: column;
+            row-gap: 6px;
+
+            &--bottom {
+                align-items: flex-end;
+            }
+        }
+
+        &__item {
+            column-gap: 12px;
+        }
+
+        &__info-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 }
 
@@ -1222,221 +1403,5 @@ input[type="number"] {
 
     &__btn-wrap {
         text-align: center;
-    }
-}
-
-@media (max-width: 56.25em /* 900 */) {
-    /* ヘッダー */
-
-    .header {
-        &__hamburger-menu {
-            display: block;
-            flex: 1;
-
-            & > i {
-                cursor: pointer;
-            }
-        }
-
-        &__menu {
-            display: none;
-        }
-
-        &__logo {
-            text-align: center;
-        }
-    }
-
-    /* 商品 */
-
-    .products-list {
-        column-gap: 18px;
-
-        &__item {
-            width: calc(100% / 3 - 12px);
-        }
-    }
-
-    /* お気に入りリスト */
-
-    .fav-list {
-        &__items {
-            column-gap: 12px;
-        }
-
-        &__item {
-            width: calc(100% / 4 - 9px);
-        }
-    }
-
-    /* ホーム */
-
-    .home {
-        &__item {
-            width: calc(50% - 3px);
-        }
-
-        &__link {
-            padding: 24px;
-        }
-    }
-}
-
-@media (max-width: 37.5em /* 600 */) {
-    /* ---------- 共通部分 ---------- */
-
-    /* フォーム部品 */
-
-    .form {
-        padding: 0;
-        border: none;
-    }
-
-    /* ---------- 各ページ ---------- */
-
-    /* アクセス */
-
-    .access {
-        &__external-link {
-            margin-bottom: 16px;
-        }
-
-        .access-info {
-            &__cell {
-                display: block;
-                padding: 0;
-                line-height: 2.2rem;
-            }
-
-            &__heading {
-                display: inline-block;
-                margin: 8px 0 3px;
-                border-bottom: 1px solid $light_gray;
-            }
-        }
-    }
-
-    /* 商品 */
-
-    .products {
-        &__toolbar {
-            padding: 0 12px;
-        }
-    }
-
-    .products-list {
-        column-gap: 16px;
-
-        &__item {
-            width: calc(50% - 8px);
-        }
-    }
-
-    /* 商品詳細 */
-
-    .detail {
-        flex-wrap: wrap;
-        row-gap: 24px;
-
-        &__images,
-        &__info-group {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        &__info-group {
-            padding: 0;
-        }
-    }
-
-    /* お気に入りリスト */
-
-    .fav-list {
-        &__items {
-            column-gap: 9px;
-        }
-
-        &__item {
-            width: calc(100% / 3 - 6px);
-        }
-    }
-
-    /* カート */
-
-    .cart {
-        &__item {
-            column-gap: 8vw;
-        }
-
-        &__item-image {
-            min-width: 120px;
-        }
-
-        &__item-name,
-        &__item-price {
-            max-width: 100%;
-        }
-
-        &__form {
-            flex-direction: column-reverse;
-            align-items: start;
-        }
-
-        &__info-group {
-            flex-direction: column;
-            align-items: flex-start;
-            row-gap: 24px;
-        }
-
-        &__total-amount-wrap {
-            text-align: center;
-        }
-
-        &__total-amount {
-            font-size: 1.6rem;
-        }
-
-        &__total-amount-note {
-            font-size: 1.2rem;
-        }
-
-        &__btn-wrap {
-            text-align: center;
-        }
-    }
-
-    /* ホーム */
-
-    .home {
-        &__item {
-            width: 100%;
-        }
-
-        &__link {
-            padding: 12px;
-        }
-    }
-
-    /* 注文履歴 */
-
-    .order-history {
-        &__heading {
-            flex-direction: column;
-            row-gap: 6px;
-
-            &--bottom {
-                align-items: flex-end;
-            }
-        }
-
-        &__item {
-            column-gap: 12px;
-        }
-
-        &__info-group {
-            flex-direction: column;
-            align-items: flex-start;
-        }
     }
 }
