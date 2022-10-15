@@ -1,7 +1,15 @@
 @section('title', 'Addressees')
 
 <div x-data="{ add_open: @entangle('add_open') }" class="addressees container-sm">
-    @include('components.flash-message')
+    <div x-data="{ show: false, message: '' }"
+        @request-flash-message.window="$nextTick(() => {
+            message=$event.detail.message
+            show=true
+            setTimeout(() => show=false, 5000)
+        })"
+        x-show="show" x-transition.opacity.scale.100.duration.1000ms x-cloak class="flash-message">
+        <i class="fa-solid fa-circle-check fa-lg"></i>&nbsp;<span x-text="message"></span>
+    </div>
 
     @forelse ($addressees as $addressee)
         @if ($loop->first)

@@ -12,6 +12,8 @@
         <input wire:model.lazy="email" id="email" class="form-input" type="email" autocomplete="email" />
     </div>
 
+    <input wire:model.defer="token" type="hidden">
+
     <div class="form-group">
         <label class="form-group__label" for="password">
             パスワード
@@ -25,8 +27,6 @@
         <input wire:model.lazy="password" id="password" class="form-input" type="password" autofocus
             autocomplete="new-password" />
     </div>
-
-    <input wire:model.defer="token" type="hidden">
 
     <button wire:click="resetPassword" class="btn">パスワード再登録</button>
 </div>

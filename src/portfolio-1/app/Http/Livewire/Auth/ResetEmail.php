@@ -58,6 +58,6 @@ class ResetEmail extends Component
         $this->user->sendEmailVerificationNotification();
 
         return redirect()->route('verification.notice')
-            ->with('status', __('messages.complete.send_mail'));
+            ->with('message', __('messages.complete.send_mail'));
     }
 }

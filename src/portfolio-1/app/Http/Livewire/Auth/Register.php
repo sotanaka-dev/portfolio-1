@@ -49,6 +49,6 @@ class Register extends Component
         Auth::guard()->login($user);
 
         return redirect()->route('verification.notice')
-            ->with('status', __('messages.complete.send_mail'));
+            ->with('message', __('messages.complete.send_mail'));
     }
 }

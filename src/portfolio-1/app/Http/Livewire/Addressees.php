@@ -96,7 +96,7 @@ class Addressees extends Component
         ]);
 
         $this->emit('resetForm');
-        $this->dispatchBrowserEvent('flash', ['message' => __('messages.complete.add_addressee')]);
+        $this->dispatchBrowserEvent('request-flash-message', ['message' => __('messages.complete.add_addressee')]);
     }
 
     public function resetForm()

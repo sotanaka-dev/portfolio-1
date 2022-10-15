@@ -41,8 +41,8 @@ class Login extends Component
             // Auth::logoutOtherDevices($validated_data['password']);
             $request->session()->regenerate();
 
-            session()->flash('status', __('messages.complete.login'));
-            return redirect()->intended('home');
+            return redirect()->intended('home')
+                ->with('message', __('messages.complete.login'));
         }
         $this->addError('email', __('auth.failed'));
     }

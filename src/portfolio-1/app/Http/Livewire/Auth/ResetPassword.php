@@ -55,6 +55,6 @@ class ResetPassword extends Component
 
         $this->reset(['current_password', 'new_password']);
 
-        session()->flash('status', __('messages.complete.reset_password'));
+        session()->flash('message', __('messages.complete.reset_password'));
     }
 }

@@ -21,13 +21,13 @@ class Verification extends Component
         $request->fulfill();
 
         return redirect()->route('home')
-            ->with('status', __('messages.complete.register'));
+            ->with('message', __('messages.complete.register'));
     }
 
     public function resend(Request $request)
     {
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('status', __('messages.complete.send_mail'));
+        return back()->with('message', __('messages.complete.send_mail'));
     }
 }

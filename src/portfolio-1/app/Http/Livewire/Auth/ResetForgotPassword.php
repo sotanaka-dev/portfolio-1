@@ -63,7 +63,7 @@ class ResetForgotPassword extends Component
         );
 
         return $status === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($status))
+            ? redirect()->route('login')->with('message', __($status))
             : $this->addError('email', __($status));
     }
 }

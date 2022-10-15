@@ -45,7 +45,7 @@ class Contact extends Component
 
         $this->reset('text');
 
-        session()->flash('status', __('messages.complete.contact'));
+        session()->flash('message', __('messages.complete.contact'));
     }
 
     private function insertContacts()

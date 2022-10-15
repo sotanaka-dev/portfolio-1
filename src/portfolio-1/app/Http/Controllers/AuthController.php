@@ -14,7 +14,7 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login')
-            ->with('status', __('messages.complete.logout'));
+            ->with('message', __('messages.complete.logout'));
     }
 
     public function withdrawal()
@@ -23,6 +23,6 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect()->route('login')
-            ->with('status', __('messages.complete.withdrawal'));
+            ->with('message', __('messages.complete.withdrawal'));
     }
 }

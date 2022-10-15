@@ -73,7 +73,7 @@ class Addressee extends Component
         $this->addressee->fill($validated_data)->save();
 
         $this->emit('resetForm');
-        $this->dispatchBrowserEvent('flash', ['message' => __('messages.complete.edit_addressee')]);
+        $this->dispatchBrowserEvent('request-flash-message', ['message' => __('messages.complete.edit_addressee')]);
     }
 
     public function resetForm()
@@ -91,7 +91,7 @@ class Addressee extends Component
         $this->addressee = AddresseeModel::make();
 
         $this->emit('resetForm');
-        $this->dispatchBrowserEvent('flash', ['message' => __('messages.complete.remove_addressee')]);
+        $this->dispatchBrowserEvent('request-flash-message', ['message' => __('messages.complete.remove_addressee')]);
     }
 
     public function pressedExecBtn()

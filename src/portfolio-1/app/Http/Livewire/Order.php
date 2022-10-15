@@ -75,7 +75,7 @@ class Order extends Component
         session()->forget('items');
 
         return redirect()->route('order.history')
-            ->with('status', __('messages.complete.order'));
+            ->with('message', __('messages.complete.order'));
     }
 
     private function getOrderIdAfterInsertOrder()
