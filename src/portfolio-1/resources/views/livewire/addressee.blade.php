@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div x-show="edit_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak
+    <div x-show="edit_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak id="edit_{{ $addressee->id }}"
         class="addressees__form form h-adr">
         <div class="form-group">
             <label class="form-group__label" for="name_{{ $addressee->id }}">

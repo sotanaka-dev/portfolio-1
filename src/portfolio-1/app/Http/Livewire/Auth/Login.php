@@ -34,7 +34,7 @@ class Login extends Component
 
     public function authenticate(Request $request)
     {
-        $this->dispatchBrowserEvent('before-validation');
+        $this->dispatchBrowserEvent('request-scroll-up');
         $validated_data = $this->validate();
 
         if (Auth::attempt($validated_data, $this->remember)) {

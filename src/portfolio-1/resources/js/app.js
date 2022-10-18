@@ -17,26 +17,16 @@ window.addEventListener("scroll", (event) => {
     last_point = scroll_point;
 });
 
-/* 商品ページ */
-window.addEventListener("page-switching", (event) => {
-    window.scrollTo(0, 0);
+/* スクロールアップ */
+window.addEventListener("request-scroll-up", (event) => {
+    if (event.detail.id) {
+        document.getElementById(event.detail.id).scrollIntoView();
+    } else {
+        window.scrollTo(0, 0);
+    }
 });
 
-window.addEventListener("cart-add", (event) => {
-    window.scrollTo(0, 0);
-});
-
-/* バリデーション前 */
-window.addEventListener("before-validation", (event) => {
-    window.scrollTo(0, 0);
-});
-
-/* お届け先削除後 */
-window.addEventListener("addressee-removed", (event) => {
-    window.scrollTo(0, 0);
-});
-
-/* パスワードの表示切替 */
+// パスワードの表示切替
 window.addEventListener("password-toggle", (event) => {
     const el = event.detail.el;
     if (el.parentNode.nextElementSibling.type === "text") {

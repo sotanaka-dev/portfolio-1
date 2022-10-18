@@ -77,7 +77,7 @@ class ProductDetail extends Component
         }
         session()->put('items', collect($items));
 
-        $this->dispatchBrowserEvent('cart-add');
+        $this->dispatchBrowserEvent('request-scroll-up');
         $this->qty = self::INIT_VALUE_OF_SPIN_BTN;
         $this->emitTo('qty-in-cart', 'refresh');
         session()->flash('message', __('messages.complete.add_cart'));

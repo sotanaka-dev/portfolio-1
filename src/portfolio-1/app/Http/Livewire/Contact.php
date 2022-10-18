@@ -37,7 +37,7 @@ class Contact extends Component
 
     public function submitContactForm()
     {
-        $this->dispatchBrowserEvent('before-validation');
+        $this->dispatchBrowserEvent('request-scroll-up');
 
         $this->validate();
 

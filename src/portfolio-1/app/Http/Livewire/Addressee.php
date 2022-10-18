@@ -60,8 +60,9 @@ class Addressee extends Component
 
     public function editAddressee()
     {
+        $this->dispatchBrowserEvent('request-scroll-up', ['id' => "edit_{$this->addressee->id}"]);
         $validated_data = $this->validate();
-        $this->dispatchBrowserEvent('before-validation');
+        $this->dispatchBrowserEvent('request-scroll-up');
 
         if ($this->is_default) {
             AddresseeModel
@@ -85,7 +86,7 @@ class Addressee extends Component
 
     private function removeAddressee()
     {
-        $this->dispatchBrowserEvent('addressee-removed');
+        $this->dispatchBrowserEvent('request-scroll-up');
 
         AddresseeModel::find($this->addressee->id)->delete();
         $this->addressee = AddresseeModel::make();

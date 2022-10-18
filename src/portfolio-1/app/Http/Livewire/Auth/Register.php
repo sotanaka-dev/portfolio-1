@@ -35,7 +35,7 @@ class Register extends Component
 
     public function register()
     {
-        $this->dispatchBrowserEvent('before-validation');
+        $this->dispatchBrowserEvent('request-scroll-up');
 
         $validated_data = $this->validate();
 

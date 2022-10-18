@@ -41,7 +41,7 @@
             class="btn" type="button">お届け先を追加する</button>
     </div>
 
-    <div x-show="add_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak
+    <div x-show="add_open" x-transition.opacity.scale.origin.top.duration.300ms x-cloak id="add"
         class="addressees__form form h-adr">
         <div class="form-group">
             <label class="form-group__label" for="name">

@@ -75,10 +75,9 @@ class Addressees extends Component
 
     public function addAddressee()
     {
-
+        $this->dispatchBrowserEvent('request-scroll-up', ['id' => 'add']);
         $validated_data = $this->validate();
-
-        $this->dispatchBrowserEvent('before-validation');
+        $this->dispatchBrowserEvent('request-scroll-up');
 
         if ($this->is_default) {
             Addressee

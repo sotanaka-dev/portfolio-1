@@ -47,7 +47,7 @@ class Products extends Component
 
     public function updatedPage()
     {
-        $this->dispatchBrowserEvent('page-switching');
+        $this->dispatchBrowserEvent('request-scroll-up');
     }
 
     public function render()
