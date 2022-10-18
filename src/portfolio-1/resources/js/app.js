@@ -22,6 +22,10 @@ window.addEventListener("page-switching", (event) => {
     window.scrollTo(0, 0);
 });
 
+window.addEventListener("cart-add", (event) => {
+    window.scrollTo(0, 0);
+});
+
 /* バリデーション前 */
 window.addEventListener("before-validation", (event) => {
     window.scrollTo(0, 0);

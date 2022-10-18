@@ -60,7 +60,6 @@ class ProductDetail extends Component
             ->value('name');
     }
 
-    /* TODO: リファクタリングしたい */
     public function addProductToCart()
     {
         $items = \Util::getItemsInTheSession();
@@ -78,6 +77,9 @@ class ProductDetail extends Component
         }
         session()->put('items', collect($items));
 
-        return redirect()->route('cart');
+        $this->dispatchBrowserEvent('cart-add');
+        $this->qty = self::INIT_VALUE_OF_SPIN_BTN;
+        $this->emitTo('qty-in-cart', 'refresh');
+        session()->flash('message', __('messages.complete.add_cart'));
     }
 }

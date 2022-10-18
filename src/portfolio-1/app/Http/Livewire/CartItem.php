@@ -7,6 +7,7 @@ use Livewire\Component;
 class CartItem extends Component
 {
     private const LOWER_LIMIT_OF_SPIN_BTN = 1;
+
     public $item;
 
     public function mount()
@@ -17,9 +18,6 @@ class CartItem extends Component
 
     public function render()
     {
-        $this->emitTo('total-amount-in-cart', 'refresh');
-        $this->emitTo('qty-in-cart', 'refresh');
-
         return view('livewire.cart-item');
     }
 
@@ -48,6 +46,9 @@ class CartItem extends Component
         $items[$this->item['id']]['qty'] = $this->qty;
 
         session()->put('items', collect($items));
+
+        $this->emitTo('total-amount-in-cart', 'refresh');
+        $this->emitTo('qty-in-cart', 'refresh');
     }
 
     public function removeItem()
@@ -60,5 +61,7 @@ class CartItem extends Component
         }
 
         $this->emitTo('cart', 'refresh');
+        $this->emitTo('total-amount-in-cart', 'refresh');
+        $this->emitTo('qty-in-cart', 'refresh');
     }
 }

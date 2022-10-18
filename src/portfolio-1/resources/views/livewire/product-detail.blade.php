@@ -1,6 +1,7 @@
 @section('title', 'ProductDetail')
 
 <div class="detail container-mid">
+    @include('components.flash-message')
 
     @livewire('switch-product-image', ['product' => $product])
 
