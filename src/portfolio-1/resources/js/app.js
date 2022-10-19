@@ -37,3 +37,20 @@ window.addEventListener("password-toggle", (event) => {
     el.parentNode.nextElementSibling.type = "text";
     el.className = "fa-solid fa-eye-slash";
 });
+
+// お気に入りカウント
+document.addEventListener("alpine:init", () => {
+    Alpine.store("qtyInFavList", {
+        qty: getQty(),
+
+        setQty() {
+            this.qty = getQty();
+        },
+    });
+
+    function getQty() {
+        return Object.keys(
+            JSON.parse(localStorage.getItem("fav_items") || "{}")
+        ).length;
+    }
+});
