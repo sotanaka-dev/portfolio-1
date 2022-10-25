@@ -14,9 +14,17 @@
         </p>
 
         <div class="products__sidebar-icon-wrap">
-            @include('components.sort-icon')
+            <div class="speech-balloon-trigger">
+                @include('components.sort-icon')
 
-            <i x-on:click="search_open=true" class="fa-solid fa-magnifying-glass fa-2xl"></i>
+                <span class="speech-balloon speech-balloon--left">並べ替え</span>
+            </div>
+
+            <div class="speech-balloon-trigger">
+                <i x-on:click="search_open=true" class="fa-solid fa-magnifying-glass fa-2xl"></i>
+
+                <span class="speech-balloon speech-balloon--left">検索</span>
+            </div>
         </div>
     </div>
 
