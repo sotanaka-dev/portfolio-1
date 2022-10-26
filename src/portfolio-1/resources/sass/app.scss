@@ -749,14 +749,14 @@ input[type="number"] {
         font-size: 1.6rem;
     }
 
-    &__sidebar-icon-wrap {
+    &__sidebar-trigger-wrap {
         display: flex;
         align-items: center;
         gap: 16px;
+    }
 
-        & > div {
-            cursor: pointer;
-        }
+    &__sidebar-trigger {
+        cursor: pointer;
     }
 
     &__list {

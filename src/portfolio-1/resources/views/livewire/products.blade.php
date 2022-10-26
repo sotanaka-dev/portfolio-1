@@ -13,15 +13,15 @@
             {{ $products->links('livewire::search-result-qty') }}
         </p>
 
-        <div class="products__sidebar-icon-wrap">
-            <div class="speech-balloon-trigger">
+        <div class="products__sidebar-trigger-wrap">
+            <div x-on:click="sort_open=true" class="products__sidebar-trigger speech-balloon-trigger">
                 @include('components.sort-icon')
 
                 <span class="speech-balloon speech-balloon--left">並べ替え</span>
             </div>
 
-            <div class="speech-balloon-trigger">
-                <i x-on:click="search_open=true" class="fa-solid fa-magnifying-glass fa-2xl"></i>
+            <div x-on:click="search_open=true" class="products__sidebar-trigger speech-balloon-trigger">
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
 
                 <span class="speech-balloon speech-balloon--left">検索</span>
             </div>
