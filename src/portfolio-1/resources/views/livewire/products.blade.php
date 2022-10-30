@@ -20,7 +20,12 @@
                 <span class="speech-balloon speech-balloon--left">並べ替え</span>
             </div>
 
-            <div x-on:click="search_open=true" class="products__sidebar-trigger speech-balloon-trigger">
+            <div x-on:click="
+                    search_open=true
+                    $nextTick(() => {
+                        $refs.keyword.focus()
+                    })"
+                class="products__sidebar-trigger speech-balloon-trigger">
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
 
                 <span class="speech-balloon speech-balloon--left">検索</span>

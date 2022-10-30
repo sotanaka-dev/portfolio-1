@@ -13,7 +13,7 @@
             @endforeach
         </select>
 
-        <input wire:model="keyword" class="form-input" type="text" placeholder="キーワード">
+        <input wire:model="keyword" x-ref="keyword" class="form-input" type="text" placeholder="キーワード">
 
         <div class="search-sidebar__search-result-qty-wrap">
             <div class="search-sidebar__search-result-qty">
