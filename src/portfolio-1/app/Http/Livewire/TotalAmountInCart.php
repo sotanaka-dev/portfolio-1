@@ -1,5 +1,7 @@
 <?php
 
+/* カートページの合計金額表示 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

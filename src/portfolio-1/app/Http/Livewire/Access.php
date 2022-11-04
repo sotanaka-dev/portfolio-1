@@ -1,5 +1,7 @@
 <?php
 
+/* 店舗情報表示用ページ */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

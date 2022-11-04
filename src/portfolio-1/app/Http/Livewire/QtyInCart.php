@@ -1,5 +1,7 @@
 <?php
 
+/* カート内アイテム（セッション）の数量表示 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

@@ -1,5 +1,7 @@
 <?php
 
+/* パスワードを忘れた際の再設定（未ログイン状態） */
+
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;

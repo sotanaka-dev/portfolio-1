@@ -1,5 +1,7 @@
 <?php
 
+/* 既存のお届け先の一覧表示・新しいお届け先の追加 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

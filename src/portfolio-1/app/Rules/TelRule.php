@@ -1,5 +1,7 @@
 <?php
 
+/* 電話番号のバリデーションルール */
+
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\InvokableRule;

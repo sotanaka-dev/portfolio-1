@@ -1,5 +1,7 @@
 <?php
 
+/* 商品詳細の表示、数量を選択、カートへの追加処理 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -60,6 +62,7 @@ class ProductDetail extends Component
             ->value('name');
     }
 
+    /* HACK: if文のネスト、凝集度が低い */
     public function addProductToCart()
     {
         $items = \Util::getItemsInTheSession();

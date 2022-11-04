@@ -1,5 +1,7 @@
 <?php
 
+/* 自作したビューコンポーザの登録 */
+
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;

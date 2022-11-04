@@ -1,5 +1,7 @@
 <?php
 
+/* ログイン済みユーザーに対する注文履歴の一覧表示、年単位での絞り込み機能 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

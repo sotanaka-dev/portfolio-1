@@ -1,5 +1,7 @@
 <?php
 
+/* パスワードの再設定（ログイン状態） */
+
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
@@ -39,13 +41,6 @@ class ResetPassword extends Component
 
     public function resetPassword()
     {
-        /*
-        NOTE:
-        パスワードを変更した際、変更した端末でもログアウトされてしまう
-        TODO:
-        livewireでうまくミドルウェアを呼び出す方法を探す（もしくはミドルウェアの実行タイミングを変える）
-        */
-
         $this->dispatchBrowserEvent('request-scroll-up');
 
         $validated_data = $this->validate();

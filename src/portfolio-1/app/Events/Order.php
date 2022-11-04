@@ -1,5 +1,7 @@
 <?php
 
+/* 注文処理時に発行するイベント */
+
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;

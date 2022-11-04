@@ -1,5 +1,7 @@
 <?php
 
+/* カート一覧の各アイテムの表示、数量変更、削除 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

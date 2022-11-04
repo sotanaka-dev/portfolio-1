@@ -1,5 +1,7 @@
 <?php
 
+/* ログイン済みユーザーのお問い合わせ機能 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

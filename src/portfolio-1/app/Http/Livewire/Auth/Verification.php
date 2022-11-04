@@ -1,5 +1,7 @@
 <?php
 
+/* 認証メールの確認の通知画面 */
+
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;

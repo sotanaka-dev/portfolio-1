@@ -1,5 +1,7 @@
 <?php
 
+/* 商品詳細ページの画像切り替え機能 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

@@ -1,5 +1,7 @@
 <?php
 
+/* お届け先一覧の各お届け先の表示、編集、削除 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

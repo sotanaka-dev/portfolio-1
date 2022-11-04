@@ -1,5 +1,7 @@
 <?php
 
+/* 郵便番号のバリデーションルール */
+
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\InvokableRule;

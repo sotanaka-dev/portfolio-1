@@ -1,5 +1,7 @@
 <?php
 
+/* 注文処理後に送信されるメール（注文処理のリスナに送信処理が記述されている） */
+
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;

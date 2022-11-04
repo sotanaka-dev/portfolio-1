@@ -21,6 +21,11 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+
+            /*
+            FIXME:
+                ここで下記のリスナを呼び出すと認証が完了する前に会員登録完了メールが送信されてしまうため、認証の完了時にイベントを発行したいが、会員登録後の認証とログイン中のメアド変更時の認証は同じプロセスを踏むため、それぞれを判別してイベントを発行させるように改良する必要がある
+            */
             // SendRegisterNotification::class,
         ],
         Order::class => [

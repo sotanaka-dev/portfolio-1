@@ -1,5 +1,7 @@
 <?php
 
+/* ログアウト、退会のルートにアクセスした際の各処理 */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

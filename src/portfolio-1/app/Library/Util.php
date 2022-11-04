@@ -1,5 +1,7 @@
 <?php
 
+/* 複数のコンポーネントから使用される関数を定義したクラス */
+
 namespace App\Library;
 
 use Illuminate\Support\Facades\Facade;

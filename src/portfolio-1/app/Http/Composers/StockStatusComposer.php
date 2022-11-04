@@ -1,5 +1,7 @@
 <?php
 
+/* 在庫数別に在庫状況を表示するタグを商品詳細ビューに渡す */
+
 namespace App\Http\Composers;
 
 use Illuminate\View\View;

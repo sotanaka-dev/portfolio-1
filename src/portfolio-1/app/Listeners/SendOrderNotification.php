@@ -1,5 +1,7 @@
 <?php
 
+/* 注文処理時に発行されるイベントのリスナ */
+
 namespace App\Listeners;
 
 use App\Events\Order as OrderEvents;

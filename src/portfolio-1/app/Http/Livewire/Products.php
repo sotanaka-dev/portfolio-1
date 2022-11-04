@@ -1,5 +1,7 @@
 <?php
 
+/* 商品の一覧表示、ページ切り替え、ソート、カテゴリーとキーワードによる検索機能 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

@@ -1,5 +1,7 @@
 <?php
 
+/* 会員登録後のメアド認証が完了した際に発行されるイベントのリスナ */
+
 namespace App\Listeners;
 
 use Illuminate\Auth\Events\Registered;

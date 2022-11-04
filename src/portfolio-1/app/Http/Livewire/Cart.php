@@ -1,5 +1,7 @@
 <?php
 
+/* カートに追加（セッション）した商品の一覧表示 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

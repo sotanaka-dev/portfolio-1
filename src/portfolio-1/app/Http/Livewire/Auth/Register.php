@@ -1,5 +1,7 @@
 <?php
 
+/* 会員登録 */
+
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;

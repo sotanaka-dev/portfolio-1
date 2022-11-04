@@ -1,5 +1,7 @@
 <?php
 
+/* トップページ（新商品を数件表示） */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

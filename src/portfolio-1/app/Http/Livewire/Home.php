@@ -1,5 +1,7 @@
 <?php
 
+/* ロスイン済みユーザーに対するコンテンツ一覧を表示 */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

@@ -1,5 +1,7 @@
 <?php
 
+/* 商品の注文処理（DBへのインサート等） */
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;

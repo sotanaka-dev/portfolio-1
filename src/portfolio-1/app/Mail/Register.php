@@ -1,5 +1,7 @@
 <?php
 
+/* 会員登録後のメアド認証が完了した際に送信されるメール */
+
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
