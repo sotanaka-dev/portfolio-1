@@ -137,3 +137,9 @@ Route::get('order', App\Http\Livewire\Order::class)
 Route::get('order/history', App\Http\Livewire\OrderHistory::class)
     ->name('order.history')
     ->middleware(['auth', 'verified']);
+
+/* フォールバックルート */
+
+Route::fallback(function () {
+    return redirect()->route('top');
+});
