@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 
 use App\Http\Composers\StockStatusComposer;
 use App\Http\Composers\AmountComposer;
+use App\Http\Composers\ProductsCategoryComposer;
 
 class ViewComposeServiceProvider extends ServiceProvider
 {
@@ -29,8 +30,8 @@ class ViewComposeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('components.header', ProductsCategoryComposer::class);
         View::composer('livewire.product-detail', StockStatusComposer::class);
-
         View::composer([
             'livewire.total-amount-in-cart',
             'livewire.order',

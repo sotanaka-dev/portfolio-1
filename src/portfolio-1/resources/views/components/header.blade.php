@@ -47,8 +47,23 @@
                         <a class="link link-line" href="{{ route('top') }}">Top</a>
                     </li>
 
-                    <li>
+                    <li x-data="{ submenu_open: false }" x-on:mouseover="submenu_open=true"
+                        x-on:mouseover.outside="submenu_open=false" class="header__submenu-trigger">
                         <a class="link link-line" href="{{ route('products') }}">Products</a>
+
+                        <ul x-cloak x-show="submenu_open" x-transition.opacity.scale.80.origin.top.duration.300ms
+                            x-transition:leave.opacity.scale.80.origin.top.duration.300ms.delay.500ms
+                            class="header__submenu">
+                            <li class="header__submenu-item">
+                                <a class="header__submenu-link link" href="{{ route('products') }}">ALL</a>
+                            </li>
+                            @foreach ($categories as $category)
+                                <li class="header__submenu-item">
+                                    <a class="header__submenu-link link"
+                                        href='{{ route('products', ['category_id' => $category->id]) }}'>{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </li>
 
                     <li>

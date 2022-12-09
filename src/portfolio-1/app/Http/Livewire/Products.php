@@ -6,6 +6,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +32,20 @@ class Products extends Component
         'keyword'     => ['except' => self::EMPTY_CHAR],
         'sort_by'
     ];
+
+    public function mount(Request $request)
+    {
+        /* TODO:
+            ✓ モーダルを参考に、実際にカテゴリーを表示するカード部分を作成
+            ✓ デザインを詰めた後、実際にパラメータを付与してproductsに遷移させて試す
+            ✓ ヘッダーから指定したカテゴリーはgetパラメータとして送信し、mount内でプロパティにセットする
+
+            トリガーとカードの間に要素を入れるなどして、物理的な間隔を無くしたい（暫定的に、leave時のタイムを遅らせている）
+            カードが出たまま画面下部にスクロールすると、カードも一緒についてきてしまう
+        */
+
+        $this->category_id = $request->get('category_id');
+    }
 
     public function updatingSortBy()
     {
